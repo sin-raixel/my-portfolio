@@ -1,7 +1,32 @@
 import Header from "./components/header";
 import ProjectCard from "./components/project-card";
 import Section from "./components/section";
-import { experience, profile, projects, skills } from "./data/portfolio";
+import {
+  certifications,
+  education,
+  profile,
+  projects,
+  skills,
+  type TimelineItem,
+} from "./data/portfolio";
+
+function Timeline({ items }: { items: TimelineItem[] }) {
+  return (
+    <ul className="space-y-6 border-l border-line pl-6">
+      {items.map((item) => (
+        <li key={item.title} className="relative">
+          <span
+            aria-hidden="true"
+            className="absolute top-1.5 -left-[1.9rem] size-2 rounded-full bg-accent-strong"
+          />
+          <p className="text-sm">{item.period}</p>
+          <p className="font-semibold text-bright">{item.title}</p>
+          <p>{item.note}</p>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export default function Home() {
   return (
@@ -17,23 +42,15 @@ export default function Home() {
               </li>
             ))}
           </ul>
-          <p className="mt-6 text-sm">More full-stack projects are in progress.</p>
+          <p className="mt-6 text-sm">More projects are in progress.</p>
         </Section>
 
-        <Section id="experience" title="Experience">
-          <ul className="space-y-6 border-l border-line pl-6">
-            {experience.map((job) => (
-              <li key={job.title} className="relative">
-                <span
-                  aria-hidden="true"
-                  className="absolute top-1.5 -left-[1.9rem] size-2 rounded-full bg-accent-strong"
-                />
-                <p className="text-sm">{job.period}</p>
-                <p className="font-semibold text-bright">{job.title}</p>
-                <p>{job.note}</p>
-              </li>
-            ))}
-          </ul>
+        <Section id="education" title="Education">
+          <Timeline items={education} />
+        </Section>
+
+        <Section id="certifications" title="Certifications">
+          <Timeline items={certifications} />
         </Section>
 
         <Section id="skills" title="Skills">
@@ -49,7 +66,8 @@ export default function Home() {
 
         <Section id="contact" title="Contact">
           <p className="max-w-md leading-relaxed">
-            I&rsquo;m open to internships and freelance work. The quickest way to reach me is email.
+            I&rsquo;m currently looking for an internship. Based in {profile.location}. The
+            quickest way to reach me is email.
           </p>
           <a
             href={`mailto:${profile.email}`}
