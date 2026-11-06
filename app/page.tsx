@@ -17,6 +17,7 @@ export default function Home() {
               </li>
             ))}
           </ul>
+          <p className="mt-6 text-sm">More full-stack projects are in progress.</p>
         </Section>
 
         <Section id="experience" title="Experience">

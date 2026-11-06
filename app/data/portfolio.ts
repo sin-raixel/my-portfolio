@@ -28,30 +28,15 @@ export const nav = [
 
 export const projects: Project[] = [
   {
-    title: "CICT-PPMP: A Web-Based Management System with Machine Learning Analysis for Optimized Resource Reallocation",
+    title: "This portfolio",
     description:
-      "Search any city and see a 5-day forecast with charts. Built with a public weather API and cached responses.",
-    tags: ["React", "Vite", "Chart.js"],
-    href: "https://github.com/sin-raixel/weather-dashboard",
-  },
-  {
-    title: "Budget Tracker",
-    description:
-      "Track income and expenses by category, with monthly summaries saved to local storage.",
-    tags: ["TypeScript", "Tailwind CSS"],
-    href: "https://github.com/sin-raixel/budget-tracker",
-  },
-  {
-    title: "Recipe Finder",
-    description:
-      "Filter recipes by the ingredients you already have. Responsive layout, keyboard friendly.",
-    tags: ["Next.js", "REST API"],
-    href: "https://github.com/sin-raixel/recipe-finder",
+      "Built with Next.js, TypeScript, and Tailwind CSS, and deployed on Vercel. The source code is public.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    href: "https://github.com/sin-raixel/my-portfolio",
   },
 ];
-
 export const experience = [
-  { period: "2025 – Present", title: "Freelance web developer", note: "Small business sites and landing pages." },
+  { period: "2026 – Present", title: "Freelance web developer", note: "Small business sites and landing pages." },
   { period: "2024 – 2025", title: "Student projects", note: "Group projects in web development and databases." },
 ];
 
