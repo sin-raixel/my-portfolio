@@ -2,7 +2,6 @@ import Header from "./components/header";
 import ProjectCard from "./components/project-card";
 import Section from "./components/section";
 import { experience, profile, projects, skills } from "./data/portfolio";
-import Year from "./components/year";
 
 export default function Home() {
   return (
@@ -60,7 +59,7 @@ export default function Home() {
         </Section>
 
         <footer className="text-sm">
-          &copy; <Year />  {profile.name}. Built with Next.js and Tailwind CSS.
+          &copy; 2026 {profile.name}. Built with Next.js and Tailwind CSS.
         </footer>
       </main>
     </div>
