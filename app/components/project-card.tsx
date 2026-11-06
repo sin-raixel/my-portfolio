@@ -1,13 +1,10 @@
 import type { Project } from "../data/portfolio";
 
 export default function ProjectCard({ title, description, tags, href }: Project) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      className="group block rounded-lg border border-line bg-surface p-5 transition-colors hover:border-accent"
-    >
+  const base = "group block rounded-lg border border-line bg-surface p-5";
+
+  const content = (
+    <>
       <h3 className="text-lg font-semibold text-bright transition-colors group-hover:text-accent">
         {title}
       </h3>
@@ -19,6 +16,19 @@ export default function ProjectCard({ title, description, tags, href }: Project)
           </li>
         ))}
       </ul>
+    </>
+  );
+
+  if (!href) return <div className={base}>{content}</div>;
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className={`${base} transition-colors hover:border-accent`}
+    >
+      {content}
     </a>
   );
 }

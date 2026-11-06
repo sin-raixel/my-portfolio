@@ -1,10 +1,8 @@
-// All your content lives here. Edit this file, not the components.
-
 export type Project = {
   title: string;
   description: string;
   tags: string[];
-  href: string;
+  href?: string;
 };
 
 export type TimelineItem = {
@@ -35,21 +33,20 @@ export const nav = [
 ];
 
 export const projects: Project[] = [
-  {
+    {
     title: "CICT-PPMP",
     description:
-      "A web-based management system with machine learning analysis for optimized resource reallocation. Group project where I handled quality assurance and project documentation.",
+        "A web-based management system for my college department, with machine learning analysis for optimized resource reallocation. Access is limited to department administrators, so there is no public demo. I handled quality assurance and project documentation.",
     tags: ["TypeScript", "React", "Python", "Django", "scikit-learn", "Supabase", "Vercel", "Render"],
-    href: "https://cict-ppmp.vercel.app/",
-  },
-  {
+    },
+    {
     title: "This portfolio",
     description:
       "Built with Next.js, TypeScript, and Tailwind CSS, and deployed on Vercel. The source code is public.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
     href: "https://github.com/sin-raixel/my-portfolio",
-  },
-];
+    },
+    ];
 
 export const education: TimelineItem[] = [
   {
