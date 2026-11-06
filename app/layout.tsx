@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   title: "John Raizel Bacang | Full-stack developer",
 description:
   "Portfolio of John Raizel Bacang, a full-stack developer building web apps with React, Next.js, and TypeScript.",
+  metadataBase: new URL("https://johnraizel.vercel.app"),
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
