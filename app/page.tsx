@@ -1,86 +1,72 @@
-import Header from "./components/header";
+import AboutSection from "./components/about-section";
+import ContactSection from "./components/contact-section";
+import FeaturedProject from "./components/featured-project";
+import Footer from "./components/footer";
+import Hero from "./components/hero";
+import Navbar from "./components/navbar";
 import ProjectCard from "./components/project-card";
-import Section from "./components/section";
+import SectionDots from "./components/section-dots";
+import SectionHeading from "./components/section-heading";
+import SkillsSection from "./components/skills-section";
+import TimelineSection from "./components/timeline-section";
 import {
+  about,
   certifications,
   education,
-  profile,
   projects,
   skills,
-  type TimelineItem,
 } from "./data/portfolio";
 
-function Timeline({ items }: { items: TimelineItem[] }) {
-  return (
-    <ul className="space-y-6 border-l border-line pl-6">
-      {items.map((item) => (
-        <li key={item.title} className="relative">
-          <span
-            aria-hidden="true"
-            className="absolute top-1.5 -left-[1.9rem] size-2 rounded-full bg-accent-strong"
-          />
-          <p className="text-sm">{item.period}</p>
-          <p className="font-semibold text-bright">{item.title}</p>
-          <p>{item.note}</p>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
 export default function Home() {
+  const featured = projects.find((project) => project.featured);
+  const others = projects.filter((project) => project !== featured);
+
   return (
-    <div className="mx-auto max-w-6xl px-6 lg:flex lg:gap-20">
-      <Header />
+    <>
+      <Navbar />
+      <Hero />
 
-      <main className="space-y-24 py-16 lg:flex-1 lg:py-24">
-        <Section id="projects" title="Projects">
-          <ul className="space-y-4">
-            {projects.map((project) => (
-              <li key={project.title}>
-                <ProjectCard {...project} />
-              </li>
-            ))}
-          </ul>
-          <p className="mt-6 text-sm">More projects are in progress.</p>
-        </Section>
+      <main className="mx-auto max-w-6xl space-y-24 px-6 py-16">
+        <section id="projects" aria-labelledby="projects-title" className="scroll-mt-16">
+          <SectionHeading
+            id="projects-title"
+            number="01"
+            label="Projects"
+            title="Featured project,"
+            highlight="and what I built."
+            intro="A closer look at my strongest work: what the project is, what I contributed, and the stack behind it."
+          />
+          {featured && (
+            <div className="mt-14">
+              <FeaturedProject project={featured} />
+            </div>
+          )}
+          {others.length > 0 && (
+            <div className="mt-16">
+              <h3 className="text-xl font-semibold text-bright">More projects</h3>
+              <ul className="mt-6 space-y-4">
+                {others.map((project) => (
+                  <li key={project.title}>
+                    <ProjectCard {...project} />
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6 text-sm">More projects are in progress.</p>
+            </div>
+          )}
+        </section>
 
-        <Section id="education" title="Education">
-          <Timeline items={education} />
-        </Section>
+        <SkillsSection skills={skills} projects={projects} />
 
-        <Section id="certifications" title="Certifications">
-          <Timeline items={certifications} />
-        </Section>
+        <TimelineSection education={education} certifications={certifications} />
 
-        <Section id="skills" title="Skills">
-          <dl className="space-y-4">
-            {skills.map((skill) => (
-              <div key={skill.group} className="sm:flex sm:gap-6">
-                <dt className="w-32 shrink-0 font-semibold text-bright">{skill.group}</dt>
-                <dd>{skill.items}</dd>
-              </div>
-            ))}
-          </dl>
-        </Section>
+        <AboutSection about={about} />
 
-        <Section id="contact" title="Contact">
-          <p className="max-w-md leading-relaxed">
-            I&rsquo;m currently looking for an internship. Based in {profile.location}. The
-            quickest way to reach me is email.
-          </p>
-          <a
-            href={`mailto:${profile.email}`}
-            className="mt-6 inline-block rounded-md bg-accent-strong px-5 py-3 font-medium text-white transition-colors hover:bg-accent hover:text-ink"
-          >
-            Email {profile.email}
-          </a>
-        </Section>
-
-        <footer className="text-sm">
-          &copy; 2026 {profile.name}. Built with Next.js and Tailwind CSS.
-        </footer>
+        <ContactSection />
       </main>
-    </div>
+
+      <Footer />
+      <SectionDots />
+    </>
   );
 }

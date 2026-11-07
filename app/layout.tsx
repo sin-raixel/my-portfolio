@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Poppins } from "next/font/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,20 +13,30 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
+});
+
+
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="en">
+      <body className={`${poppins.className} ${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {children}
+      </body>
+    </html>
+  );
+}
+
+
 export const metadata: Metadata = {
   title: "John Raizel Bacang | Full-stack developer",
 description:
   "Portfolio of John Raizel Bacang, a full-stack developer building web apps with React, Next.js, and TypeScript.",
   metadataBase: new URL("https://johnraizel.vercel.app"),
 };
-
-export default function RootLayout({ children }: LayoutProps<"/">) {
-  return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
-    </html>
-  );
-}

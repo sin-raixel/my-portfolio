@@ -1,0 +1,54 @@
+import type { TimelineItem } from "../data/portfolio";
+import SectionHeading from "./section-heading";
+
+export default function TimelineSection({
+  education,
+  certifications,
+}: {
+  education: TimelineItem[];
+  certifications: TimelineItem[];
+}) {
+  const rows = [
+    ...education.map((item) => ({ ...item, category: "Education" })),
+    ...certifications.map((item) => ({ ...item, category: "Certification" })),
+  ];
+
+  return (
+    <section id="education" aria-labelledby="education-title" className="scroll-mt-16">
+      <SectionHeading
+        id="education-title"
+        number="03"
+        label="Education & certifications"
+        title="Where I've learned,"
+        highlight="and what I've earned."
+        intro="My degree, plus the courses and certificates I've completed along the way."
+      />
+
+      <ol className="mt-14 divide-y divide-line border-y border-line">
+        {rows.map((row) => (
+          <li
+            key={`${row.category}-${row.title}`}
+            className="grid gap-2 py-8 md:grid-cols-[9rem_9rem_1fr] md:gap-6"
+          >
+            <p className="text-xs font-semibold tracking-widest text-accent uppercase">{row.period}</p>
+            <p className="text-xs font-semibold tracking-widest uppercase">{row.category}</p>
+            <div>
+              <h3 className="text-xl font-semibold text-bright sm:text-2xl">{row.title}</h3>
+              <p className="mt-1">{row.note}</p>
+              {row.link && (
+                <a
+                  href={row.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-3 inline-block text-sm text-accent underline decoration-line underline-offset-4 hover:decoration-accent"
+                >
+                  View certificate
+                </a>
+              )}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+}
