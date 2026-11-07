@@ -11,6 +11,7 @@ export default function AboutSection({ about }: { about: About }) {
         label="About me"
         title="Curious by habit,"
         highlight="builder by choice."
+        highlightStyle="outline"
       />
 
       <div className="mt-14 grid gap-12 lg:grid-cols-2">

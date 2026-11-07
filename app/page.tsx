@@ -1,5 +1,6 @@
 import AboutSection from "./components/about-section";
 import ContactSection from "./components/contact-section";
+import CursorTrail from "./components/cursor-trail";
 import FeaturedProject from "./components/featured-project";
 import Footer from "./components/footer";
 import Hero from "./components/hero";
@@ -78,6 +79,7 @@ export default function Home() {
 
       <Footer />
       <SectionDots />
+      <CursorTrail />
     </>
   );
 }

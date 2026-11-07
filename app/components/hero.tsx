@@ -36,7 +36,7 @@ export default function Hero() {
         <h1 className="text-5xl leading-[1.05] font-bold tracking-tight text-bright sm:text-7xl">
           {first}
           <span className="block text-accent">{highlight}</span>
-          {last}
+          <span className="text-outline transition-colors duration-300 hover:text-accent">{last}</span>
         </h1>
         <p className="mt-8 max-w-xl text-lg leading-relaxed">{hero.intro}</p>
 

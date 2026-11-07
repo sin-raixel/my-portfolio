@@ -22,6 +22,7 @@ export default function SkillsSection({
         label="Skills"
         title="The tools"
         highlight="I build with."
+        highlightStyle="outline"
         intro="Grouped by where they fit. A number means that many of my projects here were built with that tool."
       />
 
