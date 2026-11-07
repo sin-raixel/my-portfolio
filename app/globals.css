@@ -9,6 +9,11 @@
   --color-bright: #f4f1ff;
   --color-accent: #a78bfa;
   --color-accent-strong: #7c3aed;
+  --animate-float: float 6s ease-in-out infinite;
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-14px) rotate(10deg); }
+  }
 }
 
 @theme inline {

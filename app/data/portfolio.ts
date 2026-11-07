@@ -3,6 +3,7 @@ export type Project = {
   description: string;
   tags: string[];
   href?: string; // live link
+  linkLabel?: string; // button text for the link
   repo?: string; // source code link
   featured?: boolean;
   category?: string;
@@ -10,6 +11,7 @@ export type Project = {
   built?: string;
   access?: string;
   builtWith?: string[];
+  screenshots?: Screenshot[];
 };
 
 export type TimelineItem = {
@@ -41,6 +43,7 @@ export const nav = [
 ];
 
 export type SkillGroup = { group: string; items: string[] };
+export type Screenshot = { src: string; alt: string };
 
 export const projects: Project[] = [
   {
@@ -52,8 +55,14 @@ export const projects: Project[] = [
     tags: ["TypeScript", "React", "Python", "Django", "scikit-learn", "Supabase", "Vercel", "Render"],
     role: "QA and documentation · Group project",
     built: "Quality assurance and project documentation for the system.",
-    access: "Private. Limited to department administrators, so there is no public demo.",
-    builtWith: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "Git", "GitHub"],
+    screenshots: [
+      { src: "/projects/titleHeader.png", alt: "CICT-PPMP landing page, top section" },
+      { src: "/projects/systemFeatures.png", alt: "CICT-PPMP landing page, features" },
+      { src: "/projects/userLevels.png", alt: "CICT-PPMP landing page, footer" },
+    ],
+    href: "https://cict-ppmp.vercel.app/",
+    linkLabel: "Visit landing page",
+    access: "The landing page is public. The system itself is limited to department administrators.",
   },
   {
     title: "This portfolio",
@@ -61,8 +70,10 @@ export const projects: Project[] = [
       "Built with Next.js, TypeScript, and Tailwind CSS, and deployed on Vercel. The source code is public.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
     href: "https://github.com/sin-raixel/my-portfolio",
+    builtWith: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "Git", "GitHub"],
   },
 ];
+
   export type About = {
     paragraphs: string[];
     away: string;
@@ -111,7 +122,6 @@ export const certifications: TimelineItem[] = [
     period: "2025",
     title: "Cisco Networking Basics",
     note: "Cisco Networking Academy",
-    link: "/certificates/cisco-networking-basics.png",
     },
   {
     period: "2025",
@@ -136,5 +146,5 @@ export const hero = {
   intro:
     "IT student at Bulacan State University, turning ideas into intuitive learning websites. Currently looking for an internship where I can ship real features.",
   resume: "/resume.pdf",
-  photo: "", // e.g. "/me.jpg" after adding the file to the public folder
+  photo: "/portpic.jpg", // e.g. "/me.jpg" after adding the file to the public folder
 };

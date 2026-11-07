@@ -5,6 +5,7 @@ import Footer from "./components/footer";
 import Hero from "./components/hero";
 import Navbar from "./components/navbar";
 import ProjectCard from "./components/project-card";
+import Reveal from "./components/reveal";
 import SectionDots from "./components/section-dots";
 import SectionHeading from "./components/section-heading";
 import SkillsSection from "./components/skills-section";
@@ -27,6 +28,7 @@ export default function Home() {
       <Hero />
 
       <main className="mx-auto max-w-6xl space-y-24 px-6 py-16">
+        <Reveal>
         <section id="projects" aria-labelledby="projects-title" className="scroll-mt-16">
           <SectionHeading
             id="projects-title"
@@ -55,14 +57,23 @@ export default function Home() {
             </div>
           )}
         </section>
+        </Reveal>
 
-        <SkillsSection skills={skills} projects={projects} />
+        <Reveal>
+          <SkillsSection skills={skills} projects={projects} />
+        </Reveal>
 
-        <TimelineSection education={education} certifications={certifications} />
+        <Reveal>
+          <TimelineSection education={education} certifications={certifications} />
+        </Reveal>
 
-        <AboutSection about={about} />
+        <Reveal>
+          <AboutSection about={about} />
+        </Reveal>
 
-        <ContactSection />
+        <Reveal>
+          <ContactSection />
+        </Reveal>
       </main>
 
       <Footer />

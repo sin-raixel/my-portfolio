@@ -38,7 +38,7 @@ export default function SkillsSection({
                 return (
                   <li
                     key={tool}
-                    className="flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm text-bright"
+                    className="flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm text-bright transition-all hover:border-accent hover:text-accent motion-safe:hover:-translate-y-0.5 motion-safe:hover:scale-105"
                   >
                     {tool}
                     {count > 0 && (

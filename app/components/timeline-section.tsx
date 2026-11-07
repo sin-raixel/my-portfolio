@@ -1,5 +1,8 @@
+import { LuAward, LuGraduationCap } from "react-icons/lu";
 import type { TimelineItem } from "../data/portfolio";
 import SectionHeading from "./section-heading";
+
+const categoryIcons = { Education: LuGraduationCap, Certification: LuAward };
 
 export default function TimelineSection({
   education,
@@ -25,13 +28,18 @@ export default function TimelineSection({
       />
 
       <ol className="mt-14 divide-y divide-line border-y border-line">
-        {rows.map((row) => (
+        {rows.map((row) => {
+          const Icon = categoryIcons[row.category as keyof typeof categoryIcons];
+          return (
           <li
             key={`${row.category}-${row.title}`}
-            className="grid gap-2 py-8 md:grid-cols-[9rem_9rem_1fr] md:gap-6"
+            className="group grid gap-2 px-2 py-8 transition-colors hover:bg-surface/60 md:grid-cols-[9rem_9rem_1fr] md:gap-6"
           >
             <p className="text-xs font-semibold tracking-widest text-accent uppercase">{row.period}</p>
-            <p className="text-xs font-semibold tracking-widest uppercase">{row.category}</p>
+            <p className="flex items-center gap-2 text-xs font-semibold tracking-widest uppercase">
+              <Icon aria-hidden="true" className="size-4 text-accent transition-transform motion-safe:group-hover:scale-125 motion-safe:group-hover:-rotate-6" />
+              {row.category}
+            </p>
             <div>
               <h3 className="text-xl font-semibold text-bright sm:text-2xl">{row.title}</h3>
               <p className="mt-1">{row.note}</p>
@@ -47,7 +55,8 @@ export default function TimelineSection({
               )}
             </div>
           </li>
-        ))}
+          );
+        })}
       </ol>
     </section>
   );

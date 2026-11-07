@@ -1,7 +1,21 @@
 import type { Project } from "../data/portfolio";
+import ScreenshotGallery from "./screenshot-gallery";
+
+function Tags({ tags }: { tags: string[] }) {
+  return (
+    <ul className="flex flex-wrap gap-2 text-sm">
+      {tags.map((tag) => (
+        <li key={tag} className="rounded-full bg-accent/10 px-3 py-1 text-accent">
+          {tag}
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export default function FeaturedProject({ project }: { project: Project }) {
   const link = project.href ?? project.repo;
+  const shots = project.screenshots ?? [];
 
   const rows: [string, string][] = [
     ["My role", project.role],
@@ -11,20 +25,22 @@ export default function FeaturedProject({ project }: { project: Project }) {
 
   return (
     <article className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center">
-      {/* Visual panel: swap in a screenshot later if the project can be shown publicly */}
-      <div className="flex min-h-72 flex-col justify-between rounded-2xl border border-line bg-surface p-8">
-        <p className="text-sm">{project.category}</p>
-        <p className="py-8 text-4xl leading-tight font-bold tracking-tight text-bright/90 sm:text-5xl">
-          {project.title}
-        </p>
-        <ul className="flex flex-wrap gap-2 text-sm">
-          {project.tags.map((tag) => (
-            <li key={tag} className="rounded-full bg-accent/10 px-3 py-1 text-accent">
-              {tag}
-            </li>
-          ))}
-        </ul>
-      </div>
+      {shots.length > 0 ? (
+        <figure>
+          <ScreenshotGallery shots={shots} />
+          <figcaption className="mt-4">
+            <Tags tags={project.tags} />
+          </figcaption>
+        </figure>
+      ) : (
+        <div className="flex min-h-72 flex-col justify-between rounded-2xl border border-line bg-surface p-8">
+          <p className="text-sm">{project.category}</p>
+          <p className="py-8 text-4xl leading-tight font-bold tracking-tight text-bright/90 sm:text-5xl">
+            {project.title}
+          </p>
+          <Tags tags={project.tags} />
+        </div>
+      )}
 
       <div>
         <p className="text-xs font-semibold tracking-widest text-accent uppercase">Featured</p>
@@ -47,7 +63,7 @@ export default function FeaturedProject({ project }: { project: Project }) {
             rel="noreferrer"
             className="mt-8 inline-block rounded-full bg-accent-strong px-7 py-3 font-medium text-white transition-colors hover:bg-accent hover:text-ink"
           >
-            {project.href ? "Visit project" : "View source"}
+            {project.linkLabel ?? (project.href ? "Visit project" : "View source")}
           </a>
         )}
       </div>
