@@ -1,35 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { nav } from "../data/portfolio";
+import { useActiveSection } from "./use-active-section";
 
+// Built from the same `nav` data as the navbar, so the two never drift apart.
 const items = [
   { id: "home", label: "Home" },
-  { id: "projects", label: "Projects" },
-  { id: "skills", label: "Skills" },
-  { id: "education", label: "Education" },
-  { id: "about", label: "About" },
-  { id: "contact", label: "Contact" },
+  ...nav.map((item) => ({ id: item.href.slice(1), label: item.label })),
 ];
 
 export default function SectionDots() {
-  const [active, setActive] = useState("home");
-
-  useEffect(() => {
-    // The section crossing the middle of the screen counts as active.
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target.id);
-        });
-      },
-      { rootMargin: "-45% 0px -50% 0px" },
-    );
-    items.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
-  }, []);
+  const active = useActiveSection(items.map((item) => item.id));
 
   return (
     <nav
@@ -43,7 +24,7 @@ export default function SectionDots() {
               href={`#${item.id}`}
               title={item.label}
               aria-label={item.label}
-              aria-current={active === item.id ? "true" : undefined}
+              aria-current={active === item.id ? "location" : undefined}
               className={`grid size-8 place-items-center rounded-full text-xs font-semibold transition-colors ${
                 active === item.id ? "bg-accent-strong text-white" : "hover:text-accent"
               }`}

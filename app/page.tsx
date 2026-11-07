@@ -6,6 +6,7 @@ import Footer from "./components/footer";
 import Hero from "./components/hero";
 import Navbar from "./components/navbar";
 import ProjectCard from "./components/project-card";
+import QuizSection from "./components/quiz-section";
 import Reveal from "./components/reveal";
 import SectionDots from "./components/section-dots";
 import SectionHeading from "./components/section-heading";
@@ -16,6 +17,7 @@ import {
   certifications,
   education,
   projects,
+  quiz,
   skills,
 } from "./data/portfolio";
 
@@ -58,6 +60,10 @@ export default function Home() {
             </div>
           )}
         </section>
+        </Reveal>
+
+        <Reveal>
+          <QuizSection topics={quiz} />
         </Reveal>
 
         <Reveal>

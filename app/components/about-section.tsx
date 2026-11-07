@@ -7,11 +7,10 @@ export default function AboutSection({ about }: { about: About }) {
     <section id="about" aria-labelledby="about-title" className="scroll-mt-16">
       <SectionHeading
         id="about-title"
-        number="04"
+        number="05"
         label="About me"
         title="Curious by habit,"
         highlight="builder by choice."
-        highlightStyle="outline"
       />
 
       <div className="mt-14 grid gap-12 lg:grid-cols-2">

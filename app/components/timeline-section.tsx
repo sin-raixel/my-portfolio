@@ -20,10 +20,11 @@ export default function TimelineSection({
     <section id="education" aria-labelledby="education-title" className="scroll-mt-16">
       <SectionHeading
         id="education-title"
-        number="03"
+        number="04"
         label="Education & certifications"
         title="Where I've learned,"
         highlight="and what I've earned."
+        highlightStyle="outline"
         intro="My degree, plus the courses and certificates I've completed along the way."
       />
 

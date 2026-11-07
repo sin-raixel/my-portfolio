@@ -18,11 +18,10 @@ export default function SkillsSection({
     <section id="skills" aria-labelledby="skills-title" className="scroll-mt-16">
       <SectionHeading
         id="skills-title"
-        number="02"
+        number="03"
         label="Skills"
         title="The tools"
         highlight="I build with."
-        highlightStyle="outline"
         intro="Grouped by where they fit. A number means that many of my projects here were built with that tool."
       />
 
