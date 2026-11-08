@@ -6,7 +6,7 @@ export default function SpaceObjects() {
       {/* Ringed planet behind the hero */}
       <svg
         viewBox="0 0 400 400"
-        className="planet-drift absolute top-52 -right-28 size-72 opacity-45 drop-shadow-[0_0_60px_rgb(124_58_237/0.35)] md:top-4 md:-right-40 md:size-[30rem] md:opacity-90"
+        className="planet-drift parallax [--depth:-26px] absolute top-52 -right-28 size-72 opacity-45 drop-shadow-[0_0_60px_rgb(124_58_237/0.35)] md:top-4 md:-right-40 md:size-[30rem] md:opacity-90"
       >
         <defs>
           <radialGradient id="planet-body" cx="34%" cy="30%" r="78%">
@@ -46,7 +46,7 @@ export default function SpaceObjects() {
       {/* Crescent moon near the contact section */}
       <svg
         viewBox="0 0 120 120"
-        className="absolute bottom-44 -left-6 size-28 opacity-80 drop-shadow-[0_0_24px_rgb(196_181_253/0.45)] md:bottom-52 md:left-16 md:size-36"
+        className="parallax [--depth:16px] absolute bottom-44 -left-6 size-28 opacity-80 drop-shadow-[0_0_24px_rgb(196_181_253/0.45)] md:bottom-52 md:left-16 md:size-36"
       >
         <defs>
           <linearGradient id="moon-fill" x1="0" y1="0" x2="1" y2="1">

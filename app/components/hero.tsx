@@ -5,7 +5,7 @@ import { socialIcons } from "../data/social-icons";
 import EmailMenu from "./email-menu";
 
 const primary =
-  "group inline-flex items-center gap-2 rounded-full bg-accent-strong px-7 py-3 font-medium text-white transition-all hover:bg-accent hover:text-ink hover:shadow-lg hover:shadow-accent-strong/30 motion-safe:hover:-translate-y-0.5";
+  "group inline-flex items-center gap-2 shine rounded-full bg-accent-strong px-7 py-3 font-medium text-white transition-all hover:bg-accent hover:text-ink hover:shadow-lg hover:shadow-accent-strong/30 motion-safe:hover:-translate-y-0.5";
 const outline =
   "group inline-flex items-center gap-2 rounded-full border border-line px-7 py-3 font-medium text-bright transition-all hover:border-accent hover:text-accent motion-safe:hover:-translate-y-0.5";
 const social =
@@ -26,7 +26,7 @@ export default function Hero() {
       className="mx-auto grid max-w-6xl scroll-mt-16 items-center gap-12 px-6 py-16 md:grid-cols-[1.3fr_1fr] md:py-24"
     >
       <div>
-        <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-2 text-sm text-bright">
+        <p className="mb-6 inline-flex items-center gap-2 rounded-full glow border border-line bg-surface px-4 py-2 text-sm text-bright">
           <span className="relative flex size-2">
             <span className="absolute inline-flex size-full rounded-full bg-accent opacity-75 motion-safe:animate-ping" />
             <span className="relative inline-flex size-2 rounded-full bg-accent" />

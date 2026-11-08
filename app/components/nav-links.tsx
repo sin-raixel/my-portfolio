@@ -18,8 +18,10 @@ export default function NavLinks({ links }: { links: NavItem[] }) {
               <a
                 href={item.href}
                 aria-current={isActive ? "location" : undefined}
-                className={`relative transition-colors hover:text-accent after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:bg-accent after:transition-transform after:duration-300 hover:after:scale-x-100 ${
-                  isActive ? "text-accent after:scale-x-100" : "after:scale-x-0"
+                className={`relative transition-colors hover:text-accent after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:bg-accent after:transition-transform after:duration-300 hover:after:scale-x-100 hover:[text-shadow:0_0_14px_rgb(167_139_250/0.8)] ${
+                  isActive
+                    ? "text-accent [text-shadow:0_0_14px_rgb(167_139_250/0.6)] after:scale-x-100"
+                    : "after:scale-x-0"
                 }`}
               >
                 {item.label}

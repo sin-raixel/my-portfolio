@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import { hero, profile, site } from "./data/portfolio";
 import SpaceBackground from "./components/space-background";
+import SpaceHover from "./components/space-hover";
 import SpaceObjects from "./components/space-objects";
 
 const geistSans = Geist({
@@ -83,6 +84,7 @@ export default function RootLayout({
             it keeps the sticky navbar working. */}
         <div className="space-nebula" aria-hidden="true" />
         <SpaceBackground />
+        <SpaceHover />
         <div className="relative overflow-x-clip">
           <SpaceObjects />
           {children}

@@ -15,7 +15,7 @@ export default function SectionDots() {
   return (
     <nav
       aria-label="Page sections"
-      className="fixed top-1/2 right-4 z-10 hidden -translate-y-1/2 rounded-full border border-line bg-surface/80 p-1 backdrop-blur xl:block"
+      className="fixed top-1/2 right-4 z-10 hidden -translate-y-1/2 rounded-full glow border border-line bg-surface/80 p-1 backdrop-blur xl:block"
     >
       <ul className="flex flex-col gap-1">
         {items.map((item, index) => (

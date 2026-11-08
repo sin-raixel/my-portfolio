@@ -76,3 +76,53 @@
 @media (prefers-reduced-motion: reduce) {
   .space-nebula, .planet-drift { animation: none; }
 }
+
+/* Space hover effects */
+
+/* Cards: starlight that follows the cursor. --glow-a is animatable so it fades in and out. */
+@property --glow-a {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+.glow {
+  background-image: radial-gradient(
+    320px circle at var(--mx, 50%) var(--my, 50%),
+    rgb(167 139 250 / calc(var(--glow-a) * 0.16)),
+    transparent 65%
+  );
+  transition: --glow-a 0.4s ease-out;
+}
+.glow:hover,
+.glow:focus-within {
+  --glow-a: 1;
+}
+
+/* Buttons: a band of starlight sweeps across on hover. */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+.shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 35%, rgb(255 255 255 / 0.4) 50%, transparent 65%);
+  transform: translateX(-120%);
+  transition: transform 0.8s ease;
+}
+.shine:hover::after {
+  transform: translateX(120%);
+}
+
+/* Planet and moon drift against the cursor, each at its own depth (set with --depth). */
+.parallax {
+  translate: calc(var(--px, 0) * var(--depth, 0px)) calc(var(--py, 0) * var(--depth, 0px));
+  transition: translate 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shine::after { display: none; }
+  .parallax { translate: none; }
+}

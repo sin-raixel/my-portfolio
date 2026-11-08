@@ -11,7 +11,7 @@ export default function ScreenshotGallery({ shots }: { shots: Screenshot[] }) {
   return (
     <div>
       {/* Browser-style frame */}
-      <div className="overflow-hidden rounded-2xl border border-line bg-surface">
+      <div className="overflow-hidden rounded-2xl glow border border-line bg-surface">
         <div className="flex gap-2 border-b border-line px-4 py-3" aria-hidden="true">
           <span className="size-3 rounded-full bg-line" />
           <span className="size-3 rounded-full bg-line" />

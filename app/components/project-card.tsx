@@ -2,7 +2,7 @@ import { LuArrowUpRight } from "react-icons/lu";
 import type { Project } from "../data/portfolio";
 
 export default function ProjectCard({ title, description, tags, href }: Project) {
-  const base = "group relative block rounded-lg border border-line bg-surface p-5";
+  const base = "group relative block rounded-lg glow border border-line bg-surface p-5";
 
   const content = (
     <>

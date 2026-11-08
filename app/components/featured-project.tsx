@@ -33,7 +33,7 @@ export default function FeaturedProject({ project }: { project: Project }) {
           </figcaption>
         </figure>
       ) : (
-        <div className="flex min-h-72 flex-col justify-between rounded-2xl border border-line bg-surface p-8">
+        <div className="flex min-h-72 flex-col justify-between rounded-2xl glow border border-line bg-surface p-8">
           <p className="text-sm">{project.category}</p>
           <p className="py-8 text-4xl leading-tight font-bold tracking-tight text-bright/90 sm:text-5xl">
             {project.title}
@@ -61,7 +61,7 @@ export default function FeaturedProject({ project }: { project: Project }) {
             href={link}
             target="_blank"
             rel="noreferrer"
-            className="mt-8 inline-block rounded-full bg-accent-strong px-7 py-3 font-medium text-white transition-colors hover:bg-accent hover:text-ink"
+            className="mt-8 inline-block shine rounded-full bg-accent-strong px-7 py-3 font-medium text-white transition-colors hover:bg-accent hover:text-ink"
           >
             {project.linkLabel ?? (project.href ? "Visit project" : "View source")}
           </a>

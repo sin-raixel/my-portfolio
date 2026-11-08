@@ -39,7 +39,7 @@ export default function AboutSection({ about }: { about: About }) {
           </div>
         </div>
 
-        <div className="self-start rounded-2xl border border-line bg-surface p-8">
+        <div className="self-start rounded-2xl glow border border-line bg-surface p-8">
           <h3 className="flex items-center gap-2 text-2xl font-semibold text-bright">
             Right now
             <LuSparkles aria-hidden="true" className="size-5 text-accent motion-safe:animate-float" />

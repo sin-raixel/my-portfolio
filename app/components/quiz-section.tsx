@@ -64,7 +64,7 @@ export default function QuizSection({ topics }: { topics: QuizTopic[] }) {
   }
 
   const primary =
-    "group inline-flex items-center gap-2 rounded-full bg-accent-strong px-7 py-3 font-medium text-white transition-all hover:bg-accent hover:text-ink hover:shadow-lg hover:shadow-accent-strong/30 motion-safe:hover:-translate-y-0.5";
+    "group inline-flex items-center gap-2 shine rounded-full bg-accent-strong px-7 py-3 font-medium text-white transition-all hover:bg-accent hover:text-ink hover:shadow-lg hover:shadow-accent-strong/30 motion-safe:hover:-translate-y-0.5";
 
   return (
     <section id="quiz" aria-labelledby="quiz-title" className="scroll-mt-16">
@@ -78,7 +78,7 @@ export default function QuizSection({ topics }: { topics: QuizTopic[] }) {
         intro="A small taste of the interactive reviewer I want to build: pick a topic, answer, and get the explanation right away. Both topics come from my About section."
       />
 
-      <div className="mt-14 rounded-2xl border border-line bg-surface p-6 sm:p-10">
+      <div className="mt-14 rounded-2xl glow border border-line bg-surface p-6 sm:p-10">
         {/* Topic picker */}
         <div role="group" aria-label="Quiz topic" className="flex flex-wrap gap-3">
           {topics.map((t) => {

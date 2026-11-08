@@ -56,7 +56,7 @@ export default function MobileMenu({ links }: { links: NavItem[] }) {
       <ul
         id="mobile-menu"
         hidden={!open}
-        className="absolute right-0 mt-2 w-44 space-y-1 rounded-lg border border-line bg-surface p-2 text-sm shadow-lg shadow-black/40"
+        className="absolute right-0 mt-2 w-44 space-y-1 rounded-lg glow border border-line bg-surface p-2 text-sm shadow-lg shadow-black/40"
       >
         {links.map((item) => {
           const isActive = active === item.href.slice(1);

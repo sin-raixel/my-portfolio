@@ -29,7 +29,7 @@ export default function Navbar() {
             href={hero.resume}
             target="_blank"
             rel="noreferrer"
-            className="group flex items-center gap-2 rounded-full bg-accent-strong px-5 py-2 text-sm font-medium text-white transition-all hover:bg-accent hover:text-ink motion-safe:hover:-translate-y-0.5"
+            className="group flex items-center gap-2 shine rounded-full bg-accent-strong px-5 py-2 text-sm font-medium text-white transition-all hover:bg-accent hover:text-ink motion-safe:hover:-translate-y-0.5"
           >
             <LuDownload aria-hidden="true" className="size-4 transition-transform motion-safe:group-hover:translate-y-0.5" />
             Resume

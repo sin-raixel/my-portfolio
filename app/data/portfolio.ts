@@ -151,7 +151,7 @@ export const skills: SkillGroup[] = [
   { group: "Databases", items: ["MySQL", "Supabase"] },
   { group: "Networking", items: ["Cisco networking basics", "Device configuration", "Network security"] },
   { group: "Learning", items: ["Next.js", "Tailwind CSS"] },
-  { group: "Tools", items: ["Git", "GitHub", "Vercel", "VS Code"] },
+  { group: "Tools", items: ["Git", "GitHub", "Vercel", "VS Code", "Figma", "Canva", "ChatGPT", "Claude"] },
   { group: "Practices", items: ["Quality assurance", "Software testing", "Technical documentation"] },
 ];
 

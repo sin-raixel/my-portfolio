@@ -7,7 +7,7 @@ const SUBJECT = "Reaching out from your portfolio";
 
 const styles = {
   primary:
-    "group inline-flex cursor-pointer items-center gap-2 rounded-full bg-accent-strong px-7 py-3 font-medium text-white transition-all hover:bg-accent hover:text-ink hover:shadow-lg hover:shadow-accent-strong/30 motion-safe:hover:-translate-y-0.5",
+    "group inline-flex cursor-pointer items-center gap-2 shine rounded-full bg-accent-strong px-7 py-3 font-medium text-white transition-all hover:bg-accent hover:text-ink hover:shadow-lg hover:shadow-accent-strong/30 motion-safe:hover:-translate-y-0.5",
   link: "group flex cursor-pointer items-center gap-2 transition-colors hover:text-accent",
 };
 
@@ -102,7 +102,7 @@ export default function EmailMenu({
       <div
         id={`email-menu-${variant}`}
         hidden={!open}
-        className={`absolute top-full z-30 mt-2 w-72 max-w-[calc(100vw-3rem)] rounded-lg border border-line bg-surface p-2 shadow-lg shadow-black/40 ${align[variant]}`}
+        className={`absolute top-full z-30 mt-2 w-72 max-w-[calc(100vw-3rem)] rounded-lg glow border border-line bg-surface p-2 shadow-lg shadow-black/40 ${align[variant]}`}
       >
         <a
           href={gmail}
