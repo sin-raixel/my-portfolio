@@ -161,7 +161,7 @@ export const hero = {
   intro:
     "IT student at Bulacan State University, turning ideas into intuitive learning websites. Currently looking for an internship where I can ship real features.",
   resume: "/resume.pdf",
-  photo: "/portpic.jpg", // e.g. "/me.jpg" after adding the file to the public folder
+  photo: "/bwict.jpg", // e.g. "/me.jpg" after adding the file to the public folder
 };
 
 // Edit these freely. `answer` is the position of the correct option, starting at 0.
