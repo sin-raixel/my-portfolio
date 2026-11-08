@@ -1,6 +1,6 @@
-import { LuMail } from "react-icons/lu";
 import { profile } from "../data/portfolio";
 import { socialIcons } from "../data/social-icons";
+import EmailMenu from "./email-menu";
 import SectionHeading from "./section-heading";
 
 export default function ContactSection() {
@@ -19,13 +19,7 @@ export default function ContactSection() {
       />
 
       <div className="mt-12 flex flex-wrap items-center gap-4">
-        <a
-          href={`mailto:${profile.email}`}
-          className="group inline-flex items-center gap-2 rounded-full bg-accent-strong px-7 py-3 font-medium text-white transition-all hover:bg-accent hover:text-ink hover:shadow-lg hover:shadow-accent-strong/30 motion-safe:hover:-translate-y-0.5"
-        >
-          <LuMail aria-hidden="true" className="size-5 transition-transform motion-safe:group-hover:-rotate-12 motion-safe:group-hover:scale-110" />
-          Email me
-        </a>
+        <EmailMenu email={profile.email} variant="primary" />
         {socials.map((link) => {
           const Icon = socialIcons[link.label];
           return (

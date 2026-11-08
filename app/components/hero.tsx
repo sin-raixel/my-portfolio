@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { LuArrowRight, LuDownload, LuMail, LuSparkles } from "react-icons/lu";
+import { LuArrowRight, LuDownload, LuSparkles } from "react-icons/lu";
 import { hero, profile } from "../data/portfolio";
 import { socialIcons } from "../data/social-icons";
+import EmailMenu from "./email-menu";
 
 const primary =
   "group inline-flex items-center gap-2 rounded-full bg-accent-strong px-7 py-3 font-medium text-white transition-all hover:bg-accent hover:text-ink hover:shadow-lg hover:shadow-accent-strong/30 motion-safe:hover:-translate-y-0.5";
@@ -66,10 +67,7 @@ export default function Hero() {
             );
           })}
           <li>
-            <a href={`mailto:${profile.email}`} className={social}>
-              <LuMail aria-hidden="true" className="size-5 transition-transform motion-safe:group-hover:-rotate-12 motion-safe:group-hover:scale-110" />
-              Email
-            </a>
+            <EmailMenu email={profile.email} variant="link" />
           </li>
         </ul>
       </div>
