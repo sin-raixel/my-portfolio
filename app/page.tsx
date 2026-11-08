@@ -2,6 +2,7 @@ import AboutSection from "./components/about-section";
 import ContactSection from "./components/contact-section";
 import CursorTrail from "./components/cursor-trail";
 import FeaturedProject from "./components/featured-project";
+import GithubSection from "./components/github-section";
 import Footer from "./components/footer";
 import Hero from "./components/hero";
 import Navbar from "./components/navbar";
@@ -76,6 +77,10 @@ export default function Home() {
 
         <Reveal>
           <AboutSection about={about} />
+        </Reveal>
+
+        <Reveal>
+          <GithubSection />
         </Reveal>
 
         <Reveal>

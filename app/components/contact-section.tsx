@@ -10,11 +10,10 @@ export default function ContactSection() {
     <section id="contact" aria-labelledby="contact-title" className="scroll-mt-16">
       <SectionHeading
         id="contact-title"
-        number="06"
+        number="07"
         label="Contact"
         title="Open to an internship,"
         highlight="let's talk."
-        highlightStyle="outline"
         intro={`Based in ${profile.location}. Email is the quickest way to reach me.`}
       />
 

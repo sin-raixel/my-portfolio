@@ -40,6 +40,7 @@ export const nav = [
   { label: "Skills", href: "#skills" },
   { label: "Education", href: "#education" },
   { label: "About", href: "#about" },
+  { label: "GitHub", href: "#github" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -279,3 +280,6 @@ export const site = {
     "internship",
   ],
 };
+
+// Used by the GitHub activity section.
+export const github = { username: "sin-raixel" };
