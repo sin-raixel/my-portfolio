@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import { hero, profile, site } from "./data/portfolio";
+import SpaceBackground from "./components/space-background";
+import SpaceObjects from "./components/space-objects";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -79,7 +81,12 @@ export default function RootLayout({
         {/* The hero sparkles poke a few pixels past the screen edge on phones and
             tablets. Clipping here stops sideways scrolling, and unlike overflow-hidden
             it keeps the sticky navbar working. */}
-        <div className="overflow-x-clip">{children}</div>
+        <div className="space-nebula" aria-hidden="true" />
+        <SpaceBackground />
+        <div className="relative overflow-x-clip">
+          <SpaceObjects />
+          {children}
+        </div>
       </body>
     </html>
   );
