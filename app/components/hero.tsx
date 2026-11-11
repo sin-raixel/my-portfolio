@@ -22,8 +22,8 @@ export default function Hero() {
 
   return (
     <section
-      id="home"
-      className="mx-auto grid max-w-6xl scroll-mt-16 items-center gap-12 px-6 py-16 md:grid-cols-[1.3fr_1fr] md:py-24"
+      aria-label="Introduction"
+      className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-[1.3fr_1fr] md:py-24"
     >
       <div>
         <p className="mb-6 inline-flex items-center gap-2 rounded-full glow border border-line bg-surface px-4 py-2 text-sm text-bright">

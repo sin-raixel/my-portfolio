@@ -1,11 +1,12 @@
 type SectionHeadingProps = {
   id: string; // used by the parent <section aria-labelledby>
-  number: string;
+  number?: string; // leave out for sub-sections nested inside a main section
   label: string;
   title: string;
   highlight: string;
   highlightStyle?: "color" | "outline"; // "outline" = see-through letters with a purple border
   intro?: string;
+  level?: 2 | 3; // 2 = main section, 3 = smaller heading for a sub-section
 };
 
 export default function SectionHeading({
@@ -16,13 +17,17 @@ export default function SectionHeading({
   highlight,
   highlightStyle = "color",
   intro,
+  level = 2,
 }: SectionHeadingProps) {
+  const Heading = level === 3 ? "h3" : "h2";
+  const size = level === 3 ? "text-3xl sm:text-5xl" : "text-4xl sm:text-6xl";
+
   return (
     <div>
       <p className="text-xs font-semibold tracking-widest text-accent uppercase">
-        {number} — {label}
+        {number ? `${number} — ${label}` : label}
       </p>
-      <h2 id={id} className="mt-4 text-4xl leading-tight font-bold tracking-tight text-bright sm:text-6xl">
+      <Heading id={id} className={`mt-4 leading-tight font-bold tracking-tight text-bright ${size}`}>
         {title}{" "}
         <span
           className={
@@ -33,7 +38,7 @@ export default function SectionHeading({
         >
           {highlight}
         </span>
-      </h2>
+      </Heading>
       {intro && <p className="mt-6 max-w-2xl text-lg leading-relaxed">{intro}</p>}
     </div>
   );

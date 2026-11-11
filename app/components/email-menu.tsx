@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { LuCheck, LuChevronDown, LuCopy, LuExternalLink, LuMail } from "react-icons/lu";
 
 const SUBJECT = "Reaching out from your portfolio";
@@ -30,6 +30,7 @@ export default function EmailMenu({
   email: string;
   variant: keyof typeof styles;
 }) {
+  const menuId = useId();
   const [open, setOpen] = useState(false);
   const [copyState, setCopyState] = useState<"idle" | "copied" | "failed">("idle");
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -85,7 +86,7 @@ export default function EmailMenu({
         type="button"
         onClick={() => setOpen((value) => !value)}
         aria-expanded={open}
-        aria-controls={`email-menu-${variant}`}
+        aria-controls={menuId}
         className={styles[variant]}
       >
         <LuMail
@@ -100,7 +101,7 @@ export default function EmailMenu({
       </button>
 
       <div
-        id={`email-menu-${variant}`}
+        id={menuId}
         hidden={!open}
         className={`absolute top-full z-30 mt-2 w-72 max-w-[calc(100vw-3rem)] rounded-lg glow border border-line bg-surface p-2 shadow-lg shadow-black/40 ${align[variant]}`}
       >

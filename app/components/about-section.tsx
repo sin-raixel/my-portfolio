@@ -1,13 +1,16 @@
+import type { ReactNode } from "react";
 import { LuLaptop, LuSparkles, LuTelescope } from "react-icons/lu";
 import type { About } from "../data/portfolio";
+import Reveal from "./reveal";
 import SectionHeading from "./section-heading";
 
-export default function AboutSection({ about }: { about: About }) {
+export default function AboutSection({ about, children }: { about: About; children?: ReactNode }) {
   return (
     <section id="about" aria-labelledby="about-title" className="scroll-mt-16">
+      <Reveal>
       <SectionHeading
         id="about-title"
-        number="05"
+        number="02"
         label="About me"
         title="Curious by habit,"
         highlight="builder by choice."
@@ -54,6 +57,9 @@ export default function AboutSection({ about }: { about: About }) {
           </dl>
         </div>
       </div>
+      </Reveal>
+
+      {children && <div className="mt-24 space-y-24">{children}</div>}
     </section>
   );
 }

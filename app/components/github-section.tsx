@@ -50,7 +50,7 @@ export default async function GithubSection() {
     <section id="github" aria-labelledby="github-title" className="scroll-mt-16">
       <SectionHeading
         id="github-title"
-        number="06"
+        level={3}
         label="GitHub activity"
         title="Every commit"
         highlight="lights a star."

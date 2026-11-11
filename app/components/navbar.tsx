@@ -10,8 +10,6 @@ export default function Navbar() {
     .join("")
     .slice(0, 3);
 
-  const links = [{ label: "Home", href: "#home" }, ...nav];
-
   return (
     <header className="sticky top-0 z-20 border-b border-line bg-ink/80 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
@@ -22,7 +20,7 @@ export default function Navbar() {
           <span className="hidden sm:inline">{profile.name}</span>
         </a>
 
-        <NavLinks links={links} />
+        <NavLinks links={nav} />
 
         <div className="flex items-center gap-3">
           <a
@@ -32,10 +30,10 @@ export default function Navbar() {
             className="group flex items-center gap-2 shine rounded-full bg-accent-strong px-5 py-2 text-sm font-medium text-white transition-all hover:bg-accent hover:text-ink motion-safe:hover:-translate-y-0.5"
           >
             <LuDownload aria-hidden="true" className="size-4 transition-transform motion-safe:group-hover:translate-y-0.5" />
-            Resume
+            CV
           </a>
 
-          <MobileMenu links={links} />
+          <MobileMenu links={nav} />
         </div>
       </div>
     </header>

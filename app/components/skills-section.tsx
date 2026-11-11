@@ -19,7 +19,7 @@ export default function SkillsSection({
     <section id="skills" aria-labelledby="skills-title" className="scroll-mt-16">
       <SectionHeading
         id="skills-title"
-        number="03"
+        level={3}
         label="Skills"
         title="The tools"
         highlight="I build with."
@@ -29,10 +29,10 @@ export default function SkillsSection({
       <div className="mt-14 divide-y divide-line border-y border-line">
         {skills.map((group, index) => (
           <div key={group.group} className="grid gap-4 py-6 md:grid-cols-[16rem_1fr] md:items-center">
-            <h3 className="flex items-baseline gap-3 font-semibold text-bright">
+            <h4 className="flex items-baseline gap-3 font-semibold text-bright">
               <span className="text-xs text-accent">{String(index + 1).padStart(2, "0")}</span>
               {group.group}
-            </h3>
+            </h4>
             <ul className="flex flex-wrap gap-3">
               {group.items.map((tool) => {
                 const count = countProjects(tool, projects);

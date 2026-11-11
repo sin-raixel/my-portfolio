@@ -20,7 +20,7 @@ export default function TimelineSection({
     <section id="education" aria-labelledby="education-title" className="scroll-mt-16">
       <SectionHeading
         id="education-title"
-        number="04"
+        level={3}
         label="Education & certifications"
         title="Where I've learned,"
         highlight="and what I've earned."
@@ -42,7 +42,7 @@ export default function TimelineSection({
               {row.category}
             </p>
             <div>
-              <h3 className="text-xl font-semibold text-bright sm:text-2xl">{row.title}</h3>
+              <h4 className="text-xl font-semibold text-bright sm:text-2xl">{row.title}</h4>
               <p className="mt-1">{row.note}</p>
               {row.link && (
                 <a

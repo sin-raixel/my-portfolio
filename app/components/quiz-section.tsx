@@ -70,7 +70,7 @@ export default function QuizSection({ topics }: { topics: QuizTopic[] }) {
     <section id="quiz" aria-labelledby="quiz-title" className="scroll-mt-16">
       <SectionHeading
         id="quiz-title"
-        number="02"
+        level={3}
         label="Try it"
         title="Don't just read,"
         highlight="quiz yourself."
@@ -107,14 +107,14 @@ export default function QuizSection({ topics }: { topics: QuizTopic[] }) {
             <p className="text-xs font-semibold tracking-widest text-accent uppercase">
               {topic.label} quiz complete
             </p>
-            <h3
+            <h4
               ref={headingRef}
               tabIndex={-1}
               className="mt-4 text-6xl font-bold tracking-tight text-bright outline-none sm:text-7xl"
             >
               {score}
               <span className="text-outline">/{total}</span>
-            </h3>
+            </h4>
             <p className="mx-auto mt-4 max-w-md text-lg">{resultMessage(score, total)}</p>
             <div className="mt-8 flex justify-center">
               <button type="button" onClick={() => reset()} className={primary}>
@@ -143,14 +143,14 @@ export default function QuizSection({ topics }: { topics: QuizTopic[] }) {
               />
             </div>
 
-            <h3
+            <h4
               ref={headingRef}
               tabIndex={-1}
               id="quiz-question"
               className="mt-8 text-2xl leading-snug font-semibold text-bright outline-none sm:text-3xl"
             >
               {question.question}
-            </h3>
+            </h4>
 
             <ul aria-labelledby="quiz-question" className="mt-8 grid gap-3 sm:grid-cols-2">
               {question.options.map((option, i) => {

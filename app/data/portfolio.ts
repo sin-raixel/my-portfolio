@@ -35,12 +35,9 @@ export const profile = {
 };
 
 export const nav = [
+  { label: "Home", href: "#home" },
   { label: "Projects", href: "#projects" },
-  { label: "Quiz", href: "#quiz" },
-  { label: "Skills", href: "#skills" },
-  { label: "Education", href: "#education" },
-  { label: "About", href: "#about" },
-  { label: "GitHub", href: "#github" },
+  { label: "About me", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
 
