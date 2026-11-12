@@ -77,6 +77,27 @@ export const projects: Project[] = [
     access: "The landing page is public. The system itself is limited to department administrators.",
   },
   {
+    title: "Quizmos",
+    featured: true,
+    category: "Web application · Study tool",
+    description:
+      "Turns your notes into a study reviewer. Upload a PDF, Word, PowerPoint, or text file and get a quiz and flashcards, generated right in your browser, with optional AI for smarter questions.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Gemini API", "Vitest"],
+    role: "Personal project · Design, development, and testing",
+    built:
+      "File reading in the browser, a question generator, quiz and flashcard modes, PDF, Anki, and Quizlet export, saved history, and an optional Gemini AI mode with an access code and daily limits. It has unit tests and a GitHub Actions pipeline.",
+    access: "Free to use. Your files are read on your device and only leave it if you turn on AI mode.",
+    builtWith: ["Next.js", "TypeScript", "Tailwind CSS", "Git", "GitHub"],
+    href: "https://project-quizmos.vercel.app",
+    linkLabel: "Try Quizmos",
+    screenshots: [
+      { src: "/projects/quizmos-home.png", alt: "Quizmos home screen with the file upload box and saved reviewers" },
+      { src: "/projects/quizmos-upload.png", alt: "Quizmos with a PDF added and a reviewer ready to make" },
+      { src: "/projects/quizmos-quiz.png", alt: "Quizmos quiz showing a multiple-choice question" },
+      { src: "/projects/quizmos-flashcards.png", alt: "Quizmos flashcards mode" },
+    ],
+  },
+  {
     title: "This portfolio",
     description:
       "Built with Next.js, TypeScript, and Tailwind CSS, and deployed on Vercel. The source code is public.",

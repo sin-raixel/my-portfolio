@@ -14,8 +14,8 @@ export default function ProjectsSection({
   projects: Project[];
   children?: ReactNode;
 }) {
-  const featured = projects.find((project) => project.featured);
-  const others = projects.filter((project) => project !== featured);
+  const featured = projects.filter((project) => project.featured);
+  const others = projects.filter((project) => !project.featured);
 
   return (
     <section id="projects" aria-labelledby="projects-title" className="scroll-mt-16">
@@ -24,13 +24,15 @@ export default function ProjectsSection({
           id="projects-title"
           number="01"
           label="Projects"
-          title="Featured project,"
+          title="Featured projects,"
           highlight="and what I built."
-          intro="A closer look at my strongest work: what the project is, what I contributed, and the stack behind it."
+          intro="A closer look at my strongest work: what each project is, what I contributed, and the stack behind it."
         />
-        {featured && (
-          <div className="mt-14">
-            <FeaturedProject project={featured} />
+        {featured.length > 0 && (
+          <div className="mt-14 space-y-20">
+            {featured.map((project) => (
+              <FeaturedProject key={project.title} project={project} />
+            ))}
           </div>
         )}
         {others.length > 0 && (
