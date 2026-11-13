@@ -2,16 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 import { useActiveSection } from "./use-active-section";
 
 export type Dot = { href: string; label: string };
 
-const POP_MS = 2200;
-
 // A numbered pill on the right edge (00, 01, 02...). Hover or focus it and it opens
-// into a list with the section names. It also pops open for a moment whenever you
-// reach a new section. Each page passes its own list, so it always matches the page:
+// into a list with the section names. Each page passes its own list, so it always matches the page:
 // links to the other pages on Home, and links to the parts of the page everywhere else.
 // A "#" link follows your scroll position; a page link is active when you are on it.
 // Only shown on wide screens, where it fits beside the content; phones use the menu.
@@ -22,19 +18,6 @@ export default function SectionDots({ caption, dots }: { caption: string; dots: 
 
   const activeHref = ids.length > 0 ? `#${scrolled}` : pathname;
   const current = dots.some((dot) => dot.href === activeHref) ? activeHref : dots[0].href;
-
-  // Open the list for a moment each time the current section changes (not on first load).
-  const [seen, setSeen] = useState(current);
-  const [popped, setPopped] = useState(false);
-  if (seen !== current) {
-    setSeen(current);
-    setPopped(true);
-  }
-  useEffect(() => {
-    if (!popped) return;
-    const timer = setTimeout(() => setPopped(false), POP_MS);
-    return () => clearTimeout(timer);
-  }, [popped, seen]);
 
   if (dots.length < 2) return null;
 
@@ -57,11 +40,7 @@ export default function SectionDots({ caption, dots }: { caption: string; dots: 
             }`}
           >
             <span
-              className={`overflow-hidden text-sm font-medium whitespace-nowrap transition-all duration-300 motion-reduce:transition-none ${
-                popped
-                  ? "mr-3 max-w-64 opacity-100"
-                  : "mr-0 max-w-0 opacity-0 group-focus-within/nav:mr-3 group-focus-within/nav:max-w-64 group-focus-within/nav:opacity-100 group-hover/nav:mr-3 group-hover/nav:max-w-64 group-hover/nav:opacity-100"
-              }`}
+              className="mr-0 max-w-0 overflow-hidden text-sm font-medium whitespace-nowrap opacity-0 transition-all duration-300 group-focus-within/nav:mr-3 group-focus-within/nav:max-w-64 group-focus-within/nav:opacity-100 group-hover/nav:mr-3 group-hover/nav:max-w-64 group-hover/nav:opacity-100 motion-reduce:transition-none"
             >
               {dot.label}
             </span>
