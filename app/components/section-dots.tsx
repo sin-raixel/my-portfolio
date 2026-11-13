@@ -50,7 +50,7 @@ export default function SectionDots({ caption, dots }: { caption: string; dots: 
             key={dot.href}
             href={dot.href}
             aria-current={isActive ? (dot.href.startsWith("#") ? "location" : "page") : undefined}
-            className={`flex items-center justify-end gap-3 rounded-full px-2 py-1.5 transition-colors duration-300 motion-reduce:transition-none ${
+            className={`flex items-center justify-end rounded-full px-2 py-1.5 transition-colors duration-300 motion-reduce:transition-none ${
               isActive
                 ? "bg-accent/20 text-accent shadow-[0_0_14px_rgb(167_139_250/0.3)]"
                 : "text-body/70 hover:text-bright focus-visible:text-bright"
@@ -59,8 +59,8 @@ export default function SectionDots({ caption, dots }: { caption: string; dots: 
             <span
               className={`overflow-hidden text-sm font-medium whitespace-nowrap transition-all duration-300 motion-reduce:transition-none ${
                 popped
-                  ? "max-w-64 opacity-100"
-                  : "max-w-0 opacity-0 group-focus-within/nav:max-w-64 group-focus-within/nav:opacity-100 group-hover/nav:max-w-64 group-hover/nav:opacity-100"
+                  ? "mr-3 max-w-64 opacity-100"
+                  : "mr-0 max-w-0 opacity-0 group-focus-within/nav:mr-3 group-focus-within/nav:max-w-64 group-focus-within/nav:opacity-100 group-hover/nav:mr-3 group-hover/nav:max-w-64 group-hover/nav:opacity-100"
               }`}
             >
               {dot.label}
