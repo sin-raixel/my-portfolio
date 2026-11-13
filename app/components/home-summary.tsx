@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 import { LuArrowRight } from "react-icons/lu";
 import {
   about,
@@ -33,7 +34,7 @@ function Card({
         {number} — {label}
       </h3>
       <div className="mt-5 flex-1 space-y-5">{children}</div>
-      <a
+      <Link
         href={href}
         className="group mt-8 inline-flex items-center gap-2 self-start font-medium text-bright transition-colors hover:text-accent"
       >
@@ -42,7 +43,7 @@ function Card({
           aria-hidden="true"
           className="size-4 transition-transform motion-safe:group-hover:translate-x-1"
         />
-      </a>
+      </Link>
     </article>
   );
 }
@@ -69,7 +70,7 @@ export default function HomeSummary() {
   const socials = profile.links.filter((link) => !link.label.startsWith("Resume"));
 
   return (
-    <section aria-labelledby="summary-title" className="mx-auto max-w-6xl px-6 pb-8">
+    <section aria-labelledby="summary-title" className="mx-auto max-w-6xl px-6 pb-24">
       <h2
         id="summary-title"
         className="text-xs font-semibold tracking-widest text-accent uppercase"
@@ -78,7 +79,7 @@ export default function HomeSummary() {
       </h2>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-3">
-        <Card number="01" label="Projects" href="#projects" cta="See all projects">
+        <Card number="01" label="Projects" href="/projects" cta="See all projects">
           <div>
             <p className="text-2xl font-bold tracking-tight text-bright">{featured.title}</p>
             <p className="mt-2 line-clamp-3 leading-relaxed">{featured.description}</p>
@@ -90,7 +91,7 @@ export default function HomeSummary() {
           </p>
         </Card>
 
-        <Card number="02" label="About me" href="#about" cta="More about me">
+        <Card number="02" label="About me" href="/about" cta="More about me">
           <p className="line-clamp-4 leading-relaxed">{about.paragraphs[0]}</p>
           <dl className="space-y-3 text-sm">
             {education[0] && (
@@ -114,7 +115,7 @@ export default function HomeSummary() {
           {hiddenSkills > 0 && <p className="-mt-3 text-sm">+{hiddenSkills} more skills</p>}
         </Card>
 
-        <Card number="03" label="Contact" href="#contact" cta="Get in touch">
+        <Card number="03" label="Contact" href="/contact" cta="Get in touch">
           <p className="leading-relaxed">
             Open to an internship. Based in {profile.location}. Email is the quickest way to reach
             me.

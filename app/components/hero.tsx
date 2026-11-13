@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { LuArrowRight, LuDownload, LuSparkles } from "react-icons/lu";
 import { hero, profile } from "../data/portfolio";
 import { socialIcons } from "../data/social-icons";
@@ -42,10 +43,10 @@ export default function Hero() {
         <p className="mt-8 max-w-xl text-lg leading-relaxed">{hero.intro}</p>
 
         <div className="mt-10 flex flex-wrap gap-4">
-          <a href="#projects" className={primary}>
+          <Link href="/projects" className={primary}>
             View projects
             <LuArrowRight aria-hidden="true" className="size-5 transition-transform motion-safe:group-hover:translate-x-1" />
-          </a>
+          </Link>
           <a href={hero.resume} download className={outline}>
             Download resume
             <LuDownload aria-hidden="true" className="size-5 transition-transform motion-safe:group-hover:translate-y-0.5" />

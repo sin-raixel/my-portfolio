@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { LuDownload } from "react-icons/lu";
 import { hero, nav, profile } from "../data/portfolio";
 import MobileMenu from "./mobile-menu";
@@ -13,12 +14,12 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-20 border-b border-line bg-ink/80 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <a href="#home" className="group flex items-center gap-3 font-semibold text-bright">
+        <Link href="/" className="group flex items-center gap-3 font-semibold text-bright">
           <span className="grid size-9 place-items-center rounded-full bg-accent-strong text-sm text-white transition-transform duration-300 motion-safe:group-hover:rotate-12 motion-safe:group-hover:scale-110">
             {initials}
           </span>
           <span className="hidden sm:inline">{profile.name}</span>
-        </a>
+        </Link>
 
         <NavLinks links={nav} />
 

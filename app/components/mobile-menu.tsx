@@ -1,16 +1,17 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { LuMenu, LuX } from "react-icons/lu";
-import type { NavItem } from "./nav-links";
-import { useActiveSection } from "./use-active-section";
+import { isCurrentPage, type NavItem } from "./nav-links";
 
 // Mobile navigation. Closes when you pick a link, press Escape, or tap outside.
 export default function MobileMenu({ links }: { links: NavItem[] }) {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const active = useActiveSection(links.map((item) => item.href.slice(1)));
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!open) return;
@@ -59,19 +60,19 @@ export default function MobileMenu({ links }: { links: NavItem[] }) {
         className="absolute right-0 mt-2 w-44 space-y-1 rounded-lg glow border border-line bg-surface p-2 text-sm shadow-lg shadow-black/40"
       >
         {links.map((item) => {
-          const isActive = active === item.href.slice(1);
+          const isActive = isCurrentPage(pathname, item.href);
           return (
             <li key={item.href}>
-              <a
+              <Link
                 href={item.href}
                 onClick={() => setOpen(false)}
-                aria-current={isActive ? "location" : undefined}
+                aria-current={isActive ? "page" : undefined}
                 className={`block rounded-md px-3 py-2 hover:bg-ink hover:text-accent ${
                   isActive ? "bg-ink text-accent" : ""
                 }`}
               >
                 {item.label}
-              </a>
+              </Link>
             </li>
           );
         })}
