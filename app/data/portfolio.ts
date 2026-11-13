@@ -17,10 +17,10 @@ export type Project = {
   highlights?: string[]; // short feature list
   stack?: { area: string; items: string[] }[]; // tech grouped by area
   howItWorks?: { title: string; text: string }[]; // numbered steps
-  weights?: {
+  factors?: {
     title: string;
     intro: string;
-    items: { label: string; value: number; note: string }[]; // value is a percentage
+    items: { label: string; note: string }[];
     footnote?: string;
   };
   frontend?: string[]; // frontend work
@@ -45,9 +45,9 @@ export const profile = {
   links: [
     { label: "GitHub", href: "https://github.com/sin-raixel" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/john-raizel-bacang-627875394" },
-    { label: "Resume (PDF)", href: "/resume.pdf" },
     { label: "Facebook", href: "https://www.facebook.com/raixeru" },
     { label: "Instagram", href: "https://www.instagram.com/rai.is.zel" },
+    { label: "Resume (PDF)", href: "/resume.pdf" },
   ],
 };
 
@@ -113,15 +113,16 @@ export const projects: Project[] = [
         text: "The system generates Purchase Requests, and Supplemental PPMP covers items added to the plan later.",
       },
     ],
-    weights: {
-      title: "AI decision weights",
-      intro: "How the bulk budget balancing tool weighs each factor, learned from the department's historical data.",
+    factors: {
+      title: "AI decision factors",
+      intro:
+        "What the bulk budget balancing tool looks at, learned from the department's historical data. How much each factor counts changes as new data comes in.",
       items: [
-        { label: "Utilized quantity", value: 69.52, note: "How many of each item were actually used in the past" },
-        { label: "Available quantity", value: 19.42, note: "How many items were left unused in the past" },
-        { label: "Price per unit", value: 5.54, note: "How price per unit related to past use" },
-        { label: "Planned quantity", value: 4.12, note: "How many of each item were planned in the past" },
-        { label: "Item category", value: 1.4, note: "How each category of items was used in the past" },
+        { label: "Available quantity", note: "How many of each item were left unused in the past" },
+        { label: "Planned quantity", note: "How many of each item were planned in the past" },
+        { label: "Item category", note: "How each category of items was used in the past" },
+        { label: "Price per unit", note: "How price per unit related to past use" },
+        { label: "Utilized quantity", note: "How many of each item were actually used in the past" },
       ],
       footnote: "Then the knapsack algorithm finds the lowest possible price of the combined items for the target budget.",
     },

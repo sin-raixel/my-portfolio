@@ -171,32 +171,21 @@ export default function ProjectPanel({
         </div>
       )}
 
-      {project.weights && (
+      {project.factors && (
         <section className="mt-10 rounded-xl glow border border-line bg-surface p-6">
-          <h4 className={label}>{project.weights.title}</h4>
-          <p className="mt-3 max-w-2xl leading-relaxed">{project.weights.intro}</p>
-          <ul className="mt-6 space-y-5">
-            {project.weights.items.map((item) => (
-              <li key={item.label}>
-                <div className="flex items-baseline justify-between gap-4">
-                  <span className="font-medium text-bright">{item.label}</span>
-                  <span className="text-sm font-semibold text-accent">{item.value.toFixed(2)}%</span>
-                </div>
-                <div
-                  role="img"
-                  aria-label={`${item.label}: ${item.value.toFixed(2)} percent`}
-                  className="mt-2 h-2 overflow-hidden rounded-full bg-line"
-                >
-                  <div
-                    className="h-full rounded-full bg-gradient-to-r from-accent-strong to-accent"
-                    style={{ width: `${item.value}%` }}
-                  />
-                </div>
-                <p className="mt-2 text-sm">{item.note}</p>
+          <h4 className={label}>{project.factors.title}</h4>
+          <p className="mt-3 max-w-2xl leading-relaxed">{project.factors.intro}</p>
+          <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {project.factors.items.map((item) => (
+              <li key={item.label} className="rounded-lg border border-line p-4">
+                <p className="font-medium text-bright">{item.label}</p>
+                <p className="mt-1 text-sm leading-relaxed">{item.note}</p>
               </li>
             ))}
           </ul>
-          {project.weights.footnote && <p className="mt-6 border-t border-line pt-4 text-sm">{project.weights.footnote}</p>}
+          {project.factors.footnote && (
+            <p className="mt-6 border-t border-line pt-4 text-sm">{project.factors.footnote}</p>
+          )}
         </section>
       )}
 
