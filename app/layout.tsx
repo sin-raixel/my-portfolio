@@ -2,6 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import { hero, profile, site } from "./data/portfolio";
+import CursorTrail from "./components/cursor-trail";
+import Footer from "./components/footer";
+import Navbar from "./components/navbar";
 import SpaceBackground from "./components/space-background";
 import SpaceHover from "./components/space-hover";
 import SpaceObjects from "./components/space-objects";
@@ -85,9 +88,12 @@ export default function RootLayout({
         <div className="space-nebula" aria-hidden="true" />
         <SpaceBackground />
         <SpaceHover />
-        <div className="relative overflow-x-clip">
+        <div id="top" className="relative overflow-x-clip">
           <SpaceObjects />
+          <Navbar />
           {children}
+          <Footer />
+          <CursorTrail />
         </div>
       </body>
     </html>

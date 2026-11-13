@@ -8,8 +8,10 @@ export default function AboutSection({ about, children }: { about: About; childr
   return (
     <section id="about" aria-labelledby="about-title" className="scroll-mt-16">
       <Reveal>
+      <div id="about-intro" className="scroll-mt-16">
       <SectionHeading
         id="about-title"
+        level={1}
         number="02"
         label="About me"
         title="Curious by habit,"
@@ -56,6 +58,7 @@ export default function AboutSection({ about, children }: { about: About; childr
             ))}
           </dl>
         </div>
+      </div>
       </div>
       </Reveal>
 

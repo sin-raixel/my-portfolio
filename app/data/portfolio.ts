@@ -1,16 +1,31 @@
 export type Project = {
+  slug: string; // used for the section id, e.g. "project-quizmos"
   title: string;
   description: string;
   tags: string[];
   href?: string; // live link
-  linkLabel?: string; // button text for the link
+  linkLabel?: string; // button text for the live link
   repo?: string; // source code link
   featured?: boolean;
   category?: string;
+  tagline?: string; // one short line under the title
   role?: string;
-  built?: string;
+  built?: string; // "My part" box
+  period?: string;
+  status?: string;
   access?: string;
-  builtWith?: string[];
+  highlights?: string[]; // short feature list
+  stack?: { area: string; items: string[] }[]; // tech grouped by area
+  howItWorks?: { title: string; text: string }[]; // numbered steps
+  weights?: {
+    title: string;
+    intro: string;
+    items: { label: string; value: number; note: string }[]; // value is a percentage
+    footnote?: string;
+  };
+  frontend?: string[]; // frontend work
+  qa?: string[]; // QA and testing work
+  builtWith?: string[]; // used to count tools on the Skills section
   screenshots?: Screenshot[];
 };
 
@@ -31,16 +46,16 @@ export const profile = {
     { label: "GitHub", href: "https://github.com/sin-raixel" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/john-raizel-bacang-627875394" },
     { label: "Resume (PDF)", href: "/resume.pdf" },
-    { label: "Instagram", href: "https://www.instagram.com/rai.is.zel" },
     { label: "Facebook", href: "https://www.facebook.com/raixeru" },
+    { label: "Instagram", href: "https://www.instagram.com/rai.is.zel" },
   ],
 };
 
 export const nav = [
-  { label: "Home", href: "#home" },
-  { label: "Projects", href: "#projects" },
-  { label: "About me", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Projects", href: "/projects" },
+  { label: "About me", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export type SkillGroup = { group: string; items: string[] };
@@ -49,14 +64,72 @@ export type Screenshot = { src: string; alt: string };
 
 export const projects: Project[] = [
   {
+    slug: "cict-ppmp",
     title: "CICT-PPMP",
     featured: true,
     category: "Web application · College department",
+    tagline: "Procurement planning and budget balancing for the CICT department.",
     description:
-      "A web-based management system with machine learning analysis for optimized resource reallocation, built for my college department.",
+      "A web-based management system with machine learning analysis for optimized resource reallocation. It helps the CICT department at Bulacan State University manage its Project Procurement Management Plan (PPMP).",
     tags: ["TypeScript", "React", "Python", "Django", "scikit-learn", "Supabase", "Vercel", "Render"],
     role: "QA and documentation · Group project",
-    built: "Quality assurance and project documentation for the system.",
+    built:
+      "Quality assurance and documentation: black-box and manual test cases tracked in Excel, and the system's capstone manuscript.",
+    access:
+      "The landing page is public. The system itself is limited to the department's procurement staff and the Dean.",
+    highlights: [
+      "Dashboard and procurement monitoring",
+      "PPMP spreadsheet upload and master list",
+      "In-Lieu Reallocation with Dean approval",
+      "AI-powered budget balancing",
+      "Purchase request generation",
+      "Supplemental PPMP",
+    ],
+    stack: [
+      { area: "Frontend", items: ["React", "TypeScript"] },
+      { area: "Backend and data", items: ["Django", "Python", "Supabase"] },
+      { area: "Machine learning", items: ["scikit-learn", "Knapsack algorithm"] },
+      { area: "Hosting", items: ["Vercel", "Render"] },
+    ],
+    howItWorks: [
+      {
+        title: "Upload the plan",
+        text: "Procurement staff upload the department's PPMP spreadsheet, and the PPMP Master List keeps every planned item in one place.",
+      },
+      {
+        title: "Monitor procurement",
+        text: "The Dashboard and Procurement Monitoring show where the items and the overall budget stand.",
+      },
+      {
+        title: "Balance the budget",
+        text: "For In-Lieu Reallocation, a machine learning model scores items using past years of data, then the knapsack algorithm finds the combination with the lowest total price that fits the target budget.",
+      },
+      {
+        title: "Dean approves",
+        text: "The Dean reviews reallocations in In-Lieu Approval before they go ahead, and also manages users.",
+      },
+      {
+        title: "Generate the paperwork",
+        text: "The system generates Purchase Requests, and Supplemental PPMP covers items added to the plan later.",
+      },
+    ],
+    weights: {
+      title: "AI decision weights",
+      intro: "How the bulk budget balancing tool weighs each factor, learned from the department's historical data.",
+      items: [
+        { label: "Utilized quantity", value: 69.52, note: "How many of each item were actually used in the past" },
+        { label: "Available quantity", value: 19.42, note: "How many items were left unused in the past" },
+        { label: "Price per unit", value: 5.54, note: "How price per unit related to past use" },
+        { label: "Planned quantity", value: 4.12, note: "How many of each item were planned in the past" },
+        { label: "Item category", value: 1.4, note: "How each category of items was used in the past" },
+      ],
+      footnote: "Then the knapsack algorithm finds the lowest possible price of the combined items for the target budget.",
+    },
+    qa: [
+      "Black-box test cases written for the system",
+      "Manual test cases recorded in an Excel spreadsheet",
+      "Wrote the system's capstone manuscript, the project documentation",
+    ],
     screenshots: [
       { src: "/projects/titleHeader.png", alt: "CICT-PPMP landing page, top section" },
       { src: "/projects/systemFeatures.png", alt: "CICT-PPMP landing page, features" },
@@ -64,35 +137,103 @@ export const projects: Project[] = [
     ],
     href: "https://cict-ppmp.vercel.app/",
     linkLabel: "Visit landing page",
-    access: "The landing page is public. The system itself is limited to department administrators.",
   },
   {
+    slug: "quizmos",
     title: "Quizmos",
     featured: true,
     category: "Web application · Study tool",
+    tagline: "Turn your notes into a study reviewer.",
     description:
-      "Turns your notes into a study reviewer. Upload a PDF, Word, PowerPoint, or text file and get a quiz and flashcards, generated right in your browser, with optional AI for smarter questions.",
+      "Upload a PDF, Word, PowerPoint, or text file and get a quiz and flashcards, generated right in your browser, with optional AI for smarter questions.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Gemini API", "Vitest"],
-    role: "Personal project · Design, development, and testing",
+    role: "Personal project · Frontend development and testing",
     built:
-      "File reading in the browser, a question generator, quiz and flashcard modes, PDF, Anki, and Quizlet export, saved history, and an optional Gemini AI mode with an access code and daily limits. It has unit tests and a GitHub Actions pipeline.",
+      "The full interface, from upload to quiz, flashcards, history, and export, plus the unit tests and CI that keep it working.",
+    status: "Live at project-quizmos.vercel.app",
     access: "Free to use. Your files are read on your device and only leave it if you turn on AI mode.",
-    builtWith: ["Next.js", "TypeScript", "Tailwind CSS", "Git", "GitHub"],
-    href: "https://project-quizmos.vercel.app",
-    linkLabel: "Try Quizmos",
+    highlights: [
+      "Reads PDF, Word, PowerPoint, and text files",
+      "Quiz with scoring and keyboard shortcuts",
+      "Flashcards that flip in 3D",
+      "Export to PDF, Anki, and Quizlet",
+    ],
+    stack: [
+      { area: "Frontend", items: ["Next.js", "React", "TypeScript", "Tailwind CSS"] },
+      { area: "Reading files", items: ["pdf.js", "mammoth", "JSZip"] },
+      { area: "Testing", items: ["Vitest", "GitHub Actions"] },
+      { area: "Optional AI", items: ["Gemini API"] },
+    ],
+    howItWorks: [
+      {
+        title: "Add your notes",
+        text: "Drop a PDF, Word, PowerPoint, or text file, or paste your notes. Files are read on your device, so nothing is uploaded.",
+      },
+      {
+        title: "Find the key terms",
+        text: "The app looks for lines shaped like \"X is ...\" or \"Term: meaning\" and filters out headings, formulas, bullet lists, and cut-off lines.",
+      },
+      {
+        title: "Build the questions",
+        text: "Definitions become multiple choice, with wrong answers taken from the same notes so the choices look like they belong together. Optional AI mode adds true or false and select-all questions, and falls back to the free method if a request fails.",
+      },
+      {
+        title: "Study it",
+        text: "Take the quiz with scoring and keyboard shortcuts, flip through flashcards, or remove questions that came out wrong in edit mode.",
+      },
+      {
+        title: "Save or export",
+        text: "Every reviewer is saved in your browser history. Print a PDF with an answer key, or download the flashcards for Anki or Quizlet.",
+      },
+    ],
+    frontend: [
+      "Upload card with drag and drop, file type badges, and a notes box",
+      "Quiz screen with progress, scoring, A, B, C keyboard shortcuts, and a results screen that retries missed questions",
+      "Flashcards that flip in 3D, with shuffle and arrow-key navigation",
+      "Edit mode, saved reviewer history, and an export menu",
+      "Space theme with a CSS starfield, cursor parallax, and a cursor-following light on hover",
+    ],
+    qa: [
+      "Unit tests with Vitest for question generation, checking AI answers, enumeration grading, backup validation, and Anki and Quizlet export",
+      "GitHub Actions runs lint, the tests, and a full build on every push and pull request",
+      "Known limits written down: scanned PDFs need OCR, and history lives in the browser",
+    ],
     screenshots: [
       { src: "/projects/quizmos-home.png", alt: "Quizmos home screen with the file upload box and saved reviewers" },
       { src: "/projects/quizmos-upload.png", alt: "Quizmos with a PDF added and a reviewer ready to make" },
       { src: "/projects/quizmos-quiz.png", alt: "Quizmos quiz showing a multiple-choice question" },
       { src: "/projects/quizmos-flashcards.png", alt: "Quizmos flashcards mode" },
     ],
+    href: "https://project-quizmos.vercel.app",
+    linkLabel: "Try Quizmos",
+    builtWith: ["Next.js", "TypeScript", "Tailwind CSS", "Git", "GitHub"],
   },
   {
+    slug: "my-portfolio",
     title: "This portfolio",
+    category: "Personal website · Portfolio",
+    tagline: "The site you are looking at.",
     description:
       "Built with Next.js, TypeScript, and Tailwind CSS, and deployed on Vercel. The source code is public.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-    href: "https://github.com/sin-raixel/my-portfolio",
+    role: "Personal project · Frontend development",
+    built: "The design and code for every section, from the Home summary to the side navigation.",
+    highlights: [
+      "Four sections with a Home summary",
+      "Side dots that adapt to the section",
+      "Starfield cursor trail and hover glow",
+      "GitHub activity drawn as stars",
+    ],
+    stack: [
+      { area: "Frontend", items: ["Next.js", "TypeScript", "Tailwind CSS"] },
+      { area: "Tools and hosting", items: ["Git", "GitHub", "Vercel"] },
+    ],
+    frontend: [
+      "Responsive layout from phone to desktop",
+      "Section-aware side navigation with hover labels",
+      "Scroll reveal and cursor effects that respect reduced-motion settings",
+    ],
+    repo: "https://github.com/sin-raixel/my-portfolio",
     builtWith: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "Git", "GitHub"],
   },
 ];

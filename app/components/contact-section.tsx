@@ -10,6 +10,7 @@ export default function ContactSection() {
     <section id="contact" aria-labelledby="contact-title" className="scroll-mt-16">
       <SectionHeading
         id="contact-title"
+        level={1}
         number="03"
         label="Contact"
         title="Open to an internship,"

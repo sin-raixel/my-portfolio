@@ -1,12 +1,11 @@
 import type { ReactNode } from "react";
 import type { Project } from "../data/portfolio";
-import FeaturedProject from "./featured-project";
-import ProjectCard from "./project-card";
+import ProjectPanel from "./project-panel";
 import Reveal from "./reveal";
 import SectionHeading from "./section-heading";
 
-// The full Projects section. Anything passed as children (like GitHub activity)
-// is shown below the project list as part of the same section.
+// The full Projects section: one detailed panel per project, then anything passed as
+// children (like GitHub activity). The side dots use the ids set here and in the panels.
 export default function ProjectsSection({
   projects,
   children,
@@ -14,43 +13,31 @@ export default function ProjectsSection({
   projects: Project[];
   children?: ReactNode;
 }) {
-  const featured = projects.filter((project) => project.featured);
-  const others = projects.filter((project) => !project.featured);
-
   return (
     <section id="projects" aria-labelledby="projects-title" className="scroll-mt-16">
       <Reveal>
-        <SectionHeading
-          id="projects-title"
-          number="01"
-          label="Projects"
-          title="Featured projects,"
-          highlight="and what I built."
-          intro="A closer look at my strongest work: what each project is, what I contributed, and the stack behind it."
-        />
-        {featured.length > 0 && (
-          <div className="mt-14 space-y-20">
-            {featured.map((project) => (
-              <FeaturedProject key={project.title} project={project} />
-            ))}
-          </div>
-        )}
-        {others.length > 0 && (
-          <div className="mt-16">
-            <h3 className="text-xl font-semibold text-bright">More projects</h3>
-            <ul className="mt-6 space-y-4">
-              {others.map((project) => (
-                <li key={project.title}>
-                  <ProjectCard {...project} />
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 text-sm">More projects are in progress.</p>
-          </div>
-        )}
+        <div id="projects-intro" className="scroll-mt-16">
+          <SectionHeading
+            id="projects-title"
+            level={1}
+            number="01"
+            label="Projects"
+            title="What I built,"
+            highlight="and how it works."
+            intro="Each project covers what it is, how it works, the stack behind it, and what I worked on, with the focus on frontend development and QA."
+          />
+        </div>
       </Reveal>
 
-      {children && <div className="mt-24 space-y-24">{children}</div>}
+      <div className="mt-16 space-y-28">
+        {projects.map((project, index) => (
+          <Reveal key={project.slug}>
+            <ProjectPanel project={project} index={index} total={projects.length} />
+          </Reveal>
+        ))}
+      </div>
+
+      {children && <div className="mt-28 space-y-24">{children}</div>}
     </section>
   );
 }

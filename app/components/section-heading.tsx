@@ -6,7 +6,7 @@ type SectionHeadingProps = {
   highlight: string;
   highlightStyle?: "color" | "outline"; // "outline" = see-through letters with a purple border
   intro?: string;
-  level?: 2 | 3; // 2 = main section, 3 = smaller heading for a sub-section
+  level?: 1 | 2 | 3; // 1 = page heading, 2 = main section, 3 = smaller heading for a sub-section
 };
 
 export default function SectionHeading({
@@ -19,7 +19,7 @@ export default function SectionHeading({
   intro,
   level = 2,
 }: SectionHeadingProps) {
-  const Heading = level === 3 ? "h3" : "h2";
+  const Heading = level === 3 ? "h3" : level === 1 ? "h1" : "h2";
   const size = level === 3 ? "text-3xl sm:text-5xl" : "text-4xl sm:text-6xl";
 
   return (
