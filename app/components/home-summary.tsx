@@ -7,7 +7,6 @@ import {
   github,
   profile,
   projects,
-  quiz,
   skills,
 } from "../data/portfolio";
 import { socialIcons } from "../data/social-icons";
@@ -113,9 +112,6 @@ export default function HomeSummary() {
           </dl>
           <Tags items={shownSkills} />
           {hiddenSkills > 0 && <p className="-mt-3 text-sm">+{hiddenSkills} more skills</p>}
-          <p className="text-sm">
-            Quiz: {quiz.map((topic) => `${topic.emoji} ${topic.label}`).join(" · ")}
-          </p>
         </Card>
 
         <Card number="03" label="Contact" href="#contact" cta="Get in touch">

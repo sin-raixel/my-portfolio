@@ -71,7 +71,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.className} ${geistSans.variable} ${geistMono.variable} antialiased`}>
         <script
           type="application/ld+json"

@@ -7,7 +7,6 @@ import Hero from "./components/hero";
 import HomeSummary from "./components/home-summary";
 import Navbar from "./components/navbar";
 import ProjectsSection from "./components/projects-section";
-import QuizSection from "./components/quiz-section";
 import Reveal from "./components/reveal";
 import SectionDots from "./components/section-dots";
 import SkillsSection from "./components/skills-section";
@@ -17,14 +16,13 @@ import {
   certifications,
   education,
   projects,
-  quiz,
   skills,
 } from "./data/portfolio";
 
 // Four sections, matching the navbar and the side dots:
 //   Home     - hero plus a short summary of everything below
 //   Projects - the expanded version: projects and GitHub activity
-//   About me - the expanded version: bio, skills, education, quiz
+//   About me - the expanded version: bio, skills, education
 //   Contact  - the expanded version: ways to reach me
 export default function Home() {
   return (
@@ -50,9 +48,6 @@ export default function Home() {
             </Reveal>
             <Reveal>
               <TimelineSection education={education} certifications={certifications} />
-            </Reveal>
-            <Reveal>
-              <QuizSection topics={quiz} />
             </Reveal>
           </AboutSection>
 
