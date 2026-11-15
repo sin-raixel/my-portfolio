@@ -67,7 +67,7 @@ export default function HomeProjects() {
                     ))}
                     {hiddenTags > 0 && <li className="px-1 py-1">+{hiddenTags} more</li>}
                   </ul>
-                  <span className="mt-6 inline-flex items-center gap-2 font-medium text-bright transition-colors group-hover:text-accent">
+                  <span className="mt-6 inline-flex items-center gap-2 self-start btn-glass px-5 py-2.5 text-sm font-medium">
                     View project
                     <LuArrowRight
                       aria-hidden="true"

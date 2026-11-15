@@ -114,7 +114,7 @@ export default function ProjectPanel({
                   href={project.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-block shine rounded-full bg-accent-strong px-7 py-3 font-medium text-white transition-colors hover:bg-accent hover:text-ink"
+                  className="inline-block shine btn-glass-accent px-7 py-3 font-medium"
                 >
                   {project.linkLabel ?? "Visit project"}
                 </a>
@@ -124,7 +124,7 @@ export default function ProjectPanel({
                   href={project.repo}
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center gap-1.5 font-medium text-bright underline decoration-line underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+                  className="group inline-flex items-center gap-1.5 btn-glass px-6 py-3 font-medium"
                 >
                   Source code
                   <LuArrowUpRight

@@ -33,7 +33,7 @@ export default function HomeContact() {
                 rel="noreferrer"
                 aria-label={link.label}
                 title={link.label}
-                className="group grid size-12 place-items-center rounded-full border border-line text-bright transition-all hover:border-accent hover:text-accent motion-safe:hover:-translate-y-0.5"
+                className="group grid size-12 place-items-center btn-glass"
               >
                 {Icon && (
                   <Icon

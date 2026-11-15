@@ -84,7 +84,7 @@ export default async function GithubSection() {
           href={profileUrl}
           target="_blank"
           rel="noreferrer"
-          className="group mt-10 inline-flex items-center gap-2 rounded-full border border-line px-6 py-2.5 font-medium text-bright transition-all hover:border-accent hover:text-accent motion-safe:hover:-translate-y-0.5"
+          className="group mt-10 inline-flex items-center gap-2 btn-glass px-6 py-2.5 font-medium"
         >
           @{github.username}
           <LuArrowUpRight

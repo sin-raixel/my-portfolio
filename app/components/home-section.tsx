@@ -34,7 +34,7 @@ export default function HomeSection({
         </div>
         <Link
           href={href}
-          className="group inline-flex items-center gap-2 font-medium text-bright transition-colors hover:text-accent"
+          className="group inline-flex items-center gap-2 btn-glass px-5 py-2.5 text-sm font-medium"
         >
           {cta}
           <LuArrowRight

@@ -30,7 +30,7 @@ export default function ContactSection() {
               href={link.href}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center gap-2 rounded-full border border-line px-7 py-3 font-medium text-bright transition-all hover:border-accent hover:text-accent motion-safe:hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-2 btn-glass px-7 py-3 font-medium"
             >
               {Icon && (
                 <Icon aria-hidden="true" className="size-5 transition-transform motion-safe:group-hover:-rotate-12 motion-safe:group-hover:scale-110" />
