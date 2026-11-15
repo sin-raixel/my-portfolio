@@ -153,3 +153,25 @@
     animation: none;
   }
 }
+
+/* 3D tilt cards: TiltCard sets --rx and --ry from the cursor position. The cursor-following
+   starlight comes from the .glow class above. */
+.tilt {
+  transform: perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition:
+    transform 0.5s ease-out,
+    border-color 0.3s ease-out,
+    --glow-a 0.4s ease-out;
+  will-change: transform;
+}
+.tilt:hover {
+  transition:
+    transform 0.15s ease-out,
+    border-color 0.3s ease-out,
+    --glow-a 0.4s ease-out;
+}
+@media (prefers-reduced-motion: reduce), (hover: none) {
+  .tilt {
+    transform: none;
+  }
+}
