@@ -2,6 +2,7 @@ import { profile } from "../data/portfolio";
 import { socialIcons } from "../data/social-icons";
 import EmailMenu from "./email-menu";
 import SectionHeading from "./section-heading";
+import TiltCard from "./tilt-card";
 
 export default function ContactSection() {
   const socials = profile.links.filter((link) => !link.label.startsWith("Resume"));
@@ -18,7 +19,8 @@ export default function ContactSection() {
         intro={`Based in ${profile.location}. Email is the quickest way to reach me.`}
       />
 
-      <div className="mt-12 flex flex-wrap items-center gap-4">
+      <TiltCard max={1} className="mt-12 rounded-2xl p-6 sm:p-8">
+      <div className="flex flex-wrap items-center gap-4">
         <EmailMenu email={profile.email} variant="primary" />
         {socials.map((link) => {
           const Icon = socialIcons[link.label];
@@ -39,6 +41,7 @@ export default function ContactSection() {
         })}
       </div>
       <p className="mt-6 text-bright">{profile.email}</p>
+      </TiltCard>
     </section>
   );
 }

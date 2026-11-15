@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { LuLaptop, LuSparkles, LuTelescope } from "react-icons/lu";
 import type { About } from "../data/portfolio";
 import Reveal from "./reveal";
+import TiltCard from "./tilt-card";
 import SectionHeading from "./section-heading";
 
 export default function AboutSection({ about, children }: { about: About; children?: ReactNode }) {
@@ -44,7 +45,7 @@ export default function AboutSection({ about, children }: { about: About; childr
           </div>
         </div>
 
-        <div className="self-start rounded-2xl glow border border-line bg-surface p-8">
+        <TiltCard max={3} className="self-start rounded-2xl p-8">
           <h3 className="flex items-center gap-2 text-2xl font-semibold text-bright">
             Right now
             <LuSparkles aria-hidden="true" className="size-5 text-accent motion-safe:animate-float" />
@@ -57,7 +58,7 @@ export default function AboutSection({ about, children }: { about: About; childr
               </div>
             ))}
           </dl>
-        </div>
+        </TiltCard>
       </div>
       </div>
       </Reveal>

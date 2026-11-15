@@ -1,6 +1,8 @@
 import type { Project, SkillGroup } from "../data/portfolio";
 import { skillIcons } from "../data/skill-icons";
 import SectionHeading from "./section-heading";
+import StackCards from "./stack-cards";
+import TiltCard from "./tilt-card";
 
 // Counts only projects where you listed the tool in `builtWith`.
 function countProjects(tool: string, projects: Project[]) {
@@ -26,9 +28,11 @@ export default function SkillsSection({
         intro="Grouped by where they fit. A number means that many of my projects here were built with that tool."
       />
 
-      <div className="mt-14 divide-y divide-line border-y border-line">
+      <div className="mt-14">
+        <StackCards top={96} step={10} className="gap-6 md:gap-8">
         {skills.map((group, index) => (
-          <div key={group.group} className="grid gap-4 py-6 md:grid-cols-[16rem_1fr] md:items-center">
+          <TiltCard key={group.group} max={1.5} className="rounded-2xl p-6">
+          <div className="grid gap-4 md:grid-cols-[16rem_1fr] md:items-center">
             <h4 className="flex items-baseline gap-3 font-semibold text-bright">
               <span className="text-xs text-accent">{String(index + 1).padStart(2, "0")}</span>
               {group.group}
@@ -59,7 +63,9 @@ export default function SkillsSection({
               })}
             </ul>
           </div>
+          </TiltCard>
         ))}
+        </StackCards>
       </div>
     </section>
   );

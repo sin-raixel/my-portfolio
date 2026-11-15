@@ -1,6 +1,8 @@
 import { LuAward, LuGraduationCap } from "react-icons/lu";
 import type { TimelineItem } from "../data/portfolio";
 import SectionHeading from "./section-heading";
+import StackCards from "./stack-cards";
+import TiltCard from "./tilt-card";
 
 const categoryIcons = { Education: LuGraduationCap, Certification: LuAward };
 
@@ -28,14 +30,13 @@ export default function TimelineSection({
         intro="My degree, plus the courses and certificates I've completed along the way."
       />
 
-      <ol className="mt-14 divide-y divide-line border-y border-line">
+      <div className="mt-14">
+      <StackCards top={96} step={10} className="gap-6 md:gap-8">
         {rows.map((row) => {
           const Icon = categoryIcons[row.category as keyof typeof categoryIcons];
           return (
-          <li
-            key={`${row.category}-${row.title}`}
-            className="group grid gap-2 px-2 py-8 transition-colors hover:bg-surface/60 md:grid-cols-[9rem_9rem_1fr] md:gap-6"
-          >
+          <TiltCard key={`${row.category}-${row.title}`} max={1.5} className="group rounded-2xl p-6 sm:p-8">
+          <div className="grid gap-2 md:grid-cols-[9rem_9rem_1fr] md:gap-6">
             <p className="text-xs font-semibold tracking-widest text-accent uppercase">{row.period}</p>
             <p className="flex items-center gap-2 text-xs font-semibold tracking-widest uppercase">
               <Icon aria-hidden="true" className="size-4 text-accent transition-transform motion-safe:group-hover:scale-125 motion-safe:group-hover:-rotate-6" />
@@ -55,10 +56,12 @@ export default function TimelineSection({
                 </a>
               )}
             </div>
-          </li>
+          </div>
+          </TiltCard>
           );
         })}
-      </ol>
+      </StackCards>
+      </div>
     </section>
   );
 }
