@@ -1,6 +1,8 @@
 import { LuArrowUpRight } from "react-icons/lu";
 import type { Project } from "../data/portfolio";
 import ScreenshotGallery from "./screenshot-gallery";
+import StackCards from "./stack-cards";
+import TiltCard from "./tilt-card";
 
 const label = "text-xs font-semibold tracking-widest text-accent uppercase";
 
@@ -139,7 +141,7 @@ export default function ProjectPanel({
           {shots.length > 0 ? (
             <ScreenshotGallery shots={shots} />
           ) : (
-            <div className="flex min-h-72 flex-col justify-between rounded-2xl glow border border-line bg-surface p-8">
+            <TiltCard max={3} className="flex min-h-72 flex-col justify-between rounded-2xl p-8">
               <p className="text-sm">{project.category}</p>
               <p className="py-8 text-4xl leading-tight font-bold tracking-tight text-bright/90 sm:text-5xl">
                 {project.title}
@@ -151,7 +153,7 @@ export default function ProjectPanel({
                   </li>
                 ))}
               </ul>
-            </div>
+            </TiltCard>
           )}
         </div>
       </div>
@@ -159,27 +161,37 @@ export default function ProjectPanel({
       {project.howItWorks && project.howItWorks.length > 0 && (
         <div className="mt-14">
           <h4 className={label}>How it works</h4>
-          <ol className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {project.howItWorks.map((step, i) => (
-              <li key={step.title} className="rounded-xl glow border border-line bg-surface p-5">
-                <span className="text-sm font-semibold text-accent">{String(i + 1).padStart(2, "0")}</span>
-                <p className="mt-2 text-lg font-semibold text-bright">{step.title}</p>
-                <p className="mt-2 text-sm leading-relaxed">{step.text}</p>
-              </li>
-            ))}
-          </ol>
+          <div className="mt-6">
+            <StackCards top={96} step={12} className="gap-8 md:gap-14">
+              {project.howItWorks.map((step, i) => (
+                <TiltCard key={step.title} max={1.5} className="rounded-2xl p-6 sm:p-7">
+                  <div className="grid gap-3 sm:grid-cols-[5rem_1fr] sm:gap-6">
+                    <span className="text-4xl font-bold text-accent/80 tabular-nums">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <p className="text-xl font-semibold text-bright">{step.title}</p>
+                      <p className="mt-2 leading-relaxed">{step.text}</p>
+                    </div>
+                  </div>
+                </TiltCard>
+              ))}
+            </StackCards>
+          </div>
         </div>
       )}
 
       {project.factors && (
-        <section className="mt-10 rounded-xl glow border border-line bg-surface p-6">
+        <section className="mt-10 rounded-2xl border border-line bg-surface p-6">
           <h4 className={label}>{project.factors.title}</h4>
           <p className="mt-3 max-w-2xl leading-relaxed">{project.factors.intro}</p>
           <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {project.factors.items.map((item) => (
-              <li key={item.label} className="rounded-lg border border-line p-4">
-                <p className="font-medium text-bright">{item.label}</p>
-                <p className="mt-1 text-sm leading-relaxed">{item.note}</p>
+              <li key={item.label}>
+                <TiltCard max={5} className="h-full rounded-xl p-4">
+                  <p className="font-medium text-bright">{item.label}</p>
+                  <p className="mt-1 text-sm leading-relaxed">{item.note}</p>
+                </TiltCard>
               </li>
             ))}
           </ul>
@@ -192,7 +204,7 @@ export default function ProjectPanel({
       {hasWork && (
         <div className="mt-10 grid gap-4 md:grid-cols-2">
           {project.frontend && project.frontend.length > 0 && (
-            <section className="rounded-xl glow border border-accent/40 bg-surface p-6">
+            <TiltCard accent max={2.5} className="rounded-2xl p-6">
               <h4 className={label}>Frontend work</h4>
               <ul className="mt-4 space-y-3 text-bright">
                 {project.frontend.map((item) => (
@@ -202,10 +214,10 @@ export default function ProjectPanel({
                   </li>
                 ))}
               </ul>
-            </section>
+            </TiltCard>
           )}
           {project.qa && project.qa.length > 0 && (
-            <section className="rounded-xl glow border border-accent/40 bg-surface p-6">
+            <TiltCard accent max={2.5} className="rounded-2xl p-6">
               <h4 className={label}>QA and testing</h4>
               <ul className="mt-4 space-y-3 text-bright">
                 {project.qa.map((item) => (
@@ -215,7 +227,7 @@ export default function ProjectPanel({
                   </li>
                 ))}
               </ul>
-            </section>
+            </TiltCard>
           )}
         </div>
       )}
