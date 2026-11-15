@@ -1,5 +1,6 @@
 import { about, certifications, education } from "../data/portfolio";
 import HomeSection from "./home-section";
+import TiltCard from "./tilt-card";
 
 const label = "text-xs font-semibold tracking-widest text-accent uppercase";
 
@@ -15,7 +16,7 @@ export default function HomeAbout() {
       cta="More about me"
     >
       <div className="grid gap-6 lg:grid-cols-[1.3fr_1fr]">
-        <div className="rounded-2xl glow border border-line bg-surface p-6 sm:p-8">
+        <TiltCard max={2} className="rounded-2xl p-6 sm:p-8">
           <p className="leading-relaxed">{about.paragraphs[0]}</p>
           <dl className="mt-6 grid gap-4 sm:grid-cols-3">
             {about.currently.map((row) => (
@@ -25,9 +26,9 @@ export default function HomeAbout() {
               </div>
             ))}
           </dl>
-        </div>
+        </TiltCard>
 
-        <div className="rounded-2xl glow border border-line bg-surface p-6 sm:p-8">
+        <TiltCard max={3} className="rounded-2xl p-6 sm:p-8">
           <dl className="space-y-5">
             {education[0] && (
               <div>
@@ -42,7 +43,7 @@ export default function HomeAbout() {
               <dd className="text-sm">Cybersecurity, networking, and more</dd>
             </div>
           </dl>
-        </div>
+        </TiltCard>
       </div>
     </HomeSection>
   );

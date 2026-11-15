@@ -2,6 +2,7 @@ import { profile } from "../data/portfolio";
 import { socialIcons } from "../data/social-icons";
 import EmailMenu from "./email-menu";
 import HomeSection from "./home-section";
+import TiltCard from "./tilt-card";
 
 // Home preview of the Contact page.
 export default function HomeContact() {
@@ -16,7 +17,7 @@ export default function HomeContact() {
       href="/contact"
       cta="Get in touch"
     >
-      <div className="flex flex-col gap-6 rounded-2xl glow border border-line bg-surface p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between">
+      <TiltCard max={1} className="flex flex-col gap-6 rounded-2xl p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between">
         <p className="max-w-md leading-relaxed">
           Based in {profile.location}. Email is the quickest way to reach me.
         </p>
@@ -44,7 +45,7 @@ export default function HomeContact() {
             );
           })}
         </div>
-      </div>
+      </TiltCard>
     </HomeSection>
   );
 }

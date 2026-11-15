@@ -1,5 +1,6 @@
 import { skills } from "../data/portfolio";
 import HomeSection from "./home-section";
+import TiltCard from "./tilt-card";
 
 const MAX_CHIPS = 6;
 
@@ -26,7 +27,7 @@ export default function HomeSkills() {
           const shown = group.items.slice(0, MAX_CHIPS);
           const hidden = group.items.length - shown.length;
           return (
-            <section key={group.group} className="rounded-xl glow border border-line bg-surface p-5">
+            <TiltCard key={group.group} max={5} className="rounded-xl p-5">
               <h3 className="text-xs font-semibold tracking-widest text-accent uppercase">{group.group}</h3>
               <ul className="mt-4 flex flex-wrap gap-2 text-sm">
                 {shown.map((item) => (
@@ -36,7 +37,7 @@ export default function HomeSkills() {
                 ))}
                 {hidden > 0 && <li className="px-1 py-1 text-sm">+{hidden} more</li>}
               </ul>
-            </section>
+            </TiltCard>
           );
         })}
       </div>
