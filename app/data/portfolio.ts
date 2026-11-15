@@ -38,7 +38,7 @@ export type TimelineItem = {
 
 export const profile = {
   name: "John Raizel Bacang",
-  role: "IT student and full-stack developer",
+  role: "IT student and frontend developer focused on UI/UX",
   bio: "I'm an IT student at Bulacan State University who enjoys building intuitive learning websites. Outside of code I'm into space science and cooking. Right now I'm learning Next.js and Tailwind CSS by building this site.",
   location: "San Jose del Monte, Bulacan, Philippines",
   email: "johnraizelbacang@gmail.com",
@@ -378,21 +378,30 @@ export const skills: SkillGroup[] = [
 ];
 
 export const hero = {
-  lines: ["I build", "web apps", "end to end."], // the middle line is highlighted
-  intro:
-    "IT student at Bulacan State University, turning ideas into intuitive learning websites. Currently looking for an internship where I can ship real features.",
+  lines: ["I design", "& build web", "interfaces."], // the middle line is highlighted; the last one gets the underline
+  intro: {
+    before:
+      "I'm an IT student at Bulacan State University focused on frontend development and UI/UX. I built ",
+    highlight: "Quizmos",
+    href: "/projects#project-quizmos",
+    after:
+      ", a study tool that turns notes into quizzes and flashcards, and I'm looking for an internship where I can ship real interfaces.",
+  },
+  coreStack: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS", "Figma"], // names from your Skills list
+  badge: "Frontend · UI/UX · QA · Open to internships", // text that circles the badge on your photo
   resume: "/resume.pdf",
   photo: "/portpic.jpg", // e.g. "/me.jpg" after adding the file to the public folder
 };
 // Used for SEO and social previews (see layout.tsx, opengraph-image.tsx, sitemap.ts).
 export const site = {
   url: "https://johnraizel.vercel.app",
-  title: "John Raizel Bacang | Full-stack developer",
+  title: "John Raizel Bacang | Frontend developer and UI/UX",
   description:
-    "Portfolio of John Raizel Bacang, an IT student and full-stack developer building web apps with React, Next.js, and TypeScript. Open to internships.",
+    "Portfolio of John Raizel Bacang, an IT student focused on frontend development and UI/UX, building web interfaces with React, Next.js, and TypeScript. Open to internships.",
   keywords: [
     "John Raizel Bacang",
-    "full-stack developer",
+    "frontend developer",
+    "UI/UX",
     "web developer portfolio",
     "Next.js",
     "React",
