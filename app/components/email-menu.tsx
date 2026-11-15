@@ -7,8 +7,8 @@ const SUBJECT = "Reaching out from your portfolio";
 
 const styles = {
   primary:
-    "group inline-flex cursor-pointer items-center gap-2 shine rounded-full bg-accent-strong px-7 py-3 font-medium text-white transition-all hover:bg-accent hover:text-ink hover:shadow-lg hover:shadow-accent-strong/30 motion-safe:hover:-translate-y-0.5",
-  link: "group flex cursor-pointer items-center gap-2 transition-colors hover:text-accent",
+    "group inline-flex cursor-pointer items-center gap-2 shine btn-glass-accent px-7 py-3 font-medium",
+  link: "group inline-flex cursor-pointer items-center gap-2 btn-glass px-4 py-2 text-sm font-medium",
 };
 
 // Where the dropdown lines up with its button. The hero link sits toward the right

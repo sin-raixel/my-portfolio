@@ -45,7 +45,7 @@ export default function MobileMenu({ links }: { links: NavItem[] }) {
         aria-expanded={open}
         aria-controls="mobile-menu"
         aria-label={open ? "Close menu" : "Open menu"}
-        className="grid size-10 cursor-pointer place-items-center rounded-full border border-line text-bright transition-colors hover:border-accent hover:text-accent"
+        className="grid size-10 cursor-pointer place-items-center btn-glass"
       >
         {open ? (
           <LuX aria-hidden="true" className="size-5" />

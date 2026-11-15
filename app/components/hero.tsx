@@ -6,12 +6,9 @@ import { skillIcons } from "../data/skill-icons";
 import { socialIcons } from "../data/social-icons";
 import EmailMenu from "./email-menu";
 
-const primary =
-  "group inline-flex items-center gap-2 shine rounded-full bg-accent-strong px-7 py-3 font-medium text-white transition-all hover:bg-accent hover:text-ink hover:shadow-lg hover:shadow-accent-strong/30 motion-safe:hover:-translate-y-0.5";
-const outline =
-  "group inline-flex items-center gap-2 rounded-full border border-line px-7 py-3 font-medium text-bright transition-all hover:border-accent hover:text-accent motion-safe:hover:-translate-y-0.5";
-const social =
-  "group flex items-center gap-2 transition-colors hover:text-accent";
+const primary = "group inline-flex items-center gap-2 shine btn-glass-accent px-7 py-3 font-medium";
+const outline = "group inline-flex items-center gap-2 btn-glass px-7 py-3 font-medium";
+const social = "group inline-flex items-center gap-2 btn-glass px-4 py-2 text-sm font-medium";
 const label = "text-xs font-semibold tracking-widest text-accent uppercase";
 
 // Draws any "&" in a headline line as an outline, like the rest of the site's accents.
@@ -118,7 +115,7 @@ export default function Hero() {
           </a>
         </div>
 
-        <ul className="mt-10 flex flex-wrap gap-6 font-medium text-bright">
+        <ul className="mt-10 flex flex-wrap gap-3">
           {socials.map((link) => {
             const Icon = socialIcons[link.label];
             return (
