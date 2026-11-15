@@ -210,6 +210,77 @@ export const projects: Project[] = [
     builtWith: ["Next.js", "TypeScript", "Tailwind CSS", "Git", "GitHub"],
   },
   {
+    slug: "starboard",
+    title: "Starboard",
+    featured: true,
+    category: "Web application · Data dashboard",
+    tagline: "NASA pictures, asteroids, a live ISS tracker, and tonight's sky.",
+    description:
+      "A space dashboard with four pages: the NASA astronomy picture of the day, near-Earth asteroids you can filter and sort, a live map of the International Space Station, and the constellations above you at the time you pick.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "Leaflet", "Vitest"],
+    role: "Personal project · Frontend development and testing",
+    built:
+      "The space-themed interface for all four pages, including the charts, the live map, and the sky chart, plus the unit tests behind the data handling.",
+    access: "Free to use. The data comes from NASA and a public ISS feed.",
+    highlights: [
+      "Picture of the day with the last seven days",
+      "Asteroids with filters, sorting, and charts",
+      "Live ISS map with its orbit and trail",
+      "Sky chart for your place and time",
+    ],
+    stack: [
+      { area: "Frontend", items: ["Next.js", "React", "TypeScript", "Tailwind CSS"] },
+      { area: "Charts and maps", items: ["Recharts", "Leaflet"] },
+      { area: "Data", items: ["NASA APIs", "Public ISS feed"] },
+      { area: "Testing", items: ["Vitest"] },
+    ],
+    howItWorks: [
+      {
+        title: "Get the data",
+        text: "The server asks NASA for the week's pictures and the next seven days of near-Earth asteroids, and a public feed for the ISS. Good results are cached for hours, so visitors don't each trigger a new request.",
+      },
+      {
+        title: "Handle failures",
+        text: "Every request has a timeout and retries with a growing delay. If a feed is down or busy, the page shows a clear message instead of breaking.",
+      },
+      {
+        title: "Browse the pictures and asteroids",
+        text: "Picture of the day opens any of the last seven days. Asteroids can be filtered by size and hazard and sorted by date, distance, size, or speed, with charts alongside.",
+      },
+      {
+        title: "Track the ISS live",
+        text: "The ISS page asks for its position every few seconds, slows down if the feed gets busy, and draws the orbit and live trail on a map that handles the 180 degree line.",
+      },
+      {
+        title: "Find the sky tonight",
+        text: "In the browser, the app works out which constellations are above you from your location and the time you choose, then draws the chart and the list.",
+      },
+    ],
+    frontend: [
+      "Space theme with a purple color motif, Orbitron and Exo 2 fonts, glowing cards, and hover effects",
+      "Four pages sharing one navigation and page layout",
+      "Loading skeletons while NASA data arrives, and clear error messages when a feed fails",
+      "Interactive ISS map with a follow toggle and a live trail",
+      "Asteroid charts, filters, and sorting that are kept in the page address",
+      "Sky chart with a time picker and a choice of device location or typed coordinates",
+    ],
+    qa: [
+      "Unit tests with Vitest across ten test files: request retries, feed parsing, asteroid filters, ISS map geometry, and sky calculations",
+      "Tests for bad data and edge cases, like the ISS crossing the 180 degree line",
+    ],
+    screenshots: [
+      { src: "/projects/starboard-apod.webp", alt: "Picture of the day, an Apollo 12 photo with its description" },
+      { src: "/projects/starboard-week.webp", alt: "The past week of pictures, ready to open" },
+      { src: "/projects/starboard-asteroids.webp", alt: "Near-Earth asteroids with summary cards and filters" },
+      { src: "/projects/starboard-asteroid-charts.webp", alt: "Asteroid charts: close approaches per day and size against miss distance" },
+      { src: "/projects/starboard-iss-map.webp", alt: "Live ISS map with its orbit and current position" },
+      { src: "/projects/starboard-iss-stats.webp", alt: "ISS position details: latitude, longitude, altitude, and speed" },
+      { src: "/projects/starboard-sky.webp", alt: "Sky tonight with the time picker and summary cards" },
+      { src: "/projects/starboard-sky-chart.webp", alt: "Sky chart and the list of constellations above the horizon" },
+    ],
+    builtWith: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "Git", "GitHub"],
+  },
+  {
     slug: "my-portfolio",
     title: "This portfolio",
     category: "Personal website · Portfolio",
