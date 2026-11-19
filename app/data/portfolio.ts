@@ -73,6 +73,8 @@ export const projects: Project[] = [
       "A web-based management system with machine learning analysis for optimized resource reallocation. It helps the CICT department at Bulacan State University manage its Project Procurement Management Plan (PPMP).",
     tags: ["TypeScript", "React", "Python", "Django", "scikit-learn", "Supabase", "Vercel", "Render"],
     role: "QA and documentation · Group project",
+    period: "2025",
+    status: "Completed",
     built:
       "Quality assurance and documentation: black-box and manual test cases tracked in Excel, and the system's capstone manuscript.",
     access:
@@ -207,11 +209,12 @@ export const projects: Project[] = [
     ],
     href: "https://project-quizmos.vercel.app",
     linkLabel: "Try Quizmos",
+    repo: "https://github.com/sin-raixel/quizmos",
     builtWith: ["Next.js", "TypeScript", "Tailwind CSS", "Git", "GitHub"],
   },
   {
-    slug: "starboard",
-    title: "Starboard",
+    slug: "spaceboard",
+    title: "Spaceboard",
     featured: true,
     category: "Web application · Data dashboard",
     tagline: "NASA pictures, asteroids, a live ISS tracker, and tonight's sky.",
@@ -278,6 +281,9 @@ export const projects: Project[] = [
       { src: "/projects/starboard-sky.webp", alt: "Sky tonight with the time picker and summary cards" },
       { src: "/projects/starboard-sky-chart.webp", alt: "Sky chart and the list of constellations above the horizon" },
     ],
+    href: "https://project-spaceboard.vercel.app/",
+    linkLabel: "Open Spaceboard",
+    repo: "https://github.com/sin-raixel/spaceboard",
     builtWith: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "Git", "GitHub"],
   },
   {
