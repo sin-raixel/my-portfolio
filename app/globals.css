@@ -136,28 +136,6 @@
   50% { opacity: 0.55; }
 }
 
-/* Side dots fade in from the right when they switch to a different section's list */
-@keyframes dots-in {
-  from {
-    opacity: 0;
-    transform: translateX(8px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-.dots-in {
-  animation: dots-in 300ms ease-out;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .dots-in {
-    animation: none;
-  }
-}
-
 /* 3D tilt cards: TiltCard sets --rx and --ry from the cursor position. The cursor-following
    starlight comes from the .glow class above. */
 .tilt {
