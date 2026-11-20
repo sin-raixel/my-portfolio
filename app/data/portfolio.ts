@@ -301,15 +301,22 @@ export const projects: Project[] = [
       "Side dots that adapt to the section",
       "Starfield cursor trail and hover glow",
       "GitHub activity drawn as stars",
+      "Playwright and axe tests that run on every push",
     ],
     stack: [
       { area: "Frontend", items: ["Next.js", "TypeScript", "Tailwind CSS"] },
       { area: "Tools and hosting", items: ["Git", "GitHub", "Vercel"] },
+      { area: "Testing", items: ["Playwright", "axe-core", "GitHub Actions"] },
     ],
     frontend: [
       "Responsive layout from phone to desktop",
       "Section-aware side navigation with hover labels",
       "Scroll reveal and cursor effects that respect reduced-motion settings",
+    ],
+    qa: [
+      "Playwright end-to-end tests run against the production build: page titles, navigation on desktop and on a phone, project panels, external links, and the email menu",
+      "axe accessibility checks against WCAG A and AA on every page and on the open mobile menu",
+      "GitHub Actions runs lint, the TypeScript check, a full build, and the tests on every push and pull request",
     ],
     repo: "https://github.com/sin-raixel/my-portfolio",
     builtWith: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "Git", "GitHub"],
