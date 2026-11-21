@@ -26,8 +26,8 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <a
             href={hero.resume}
-            target="_blank"
-            rel="noreferrer"
+            download
+            aria-label="Download CV (PDF)"
             className="group flex items-center gap-2 shine btn-glass-accent px-5 py-2 text-sm font-medium"
           >
             <LuDownload aria-hidden="true" className="size-4 transition-transform motion-safe:group-hover:translate-y-0.5" />

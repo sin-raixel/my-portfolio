@@ -67,8 +67,9 @@ test.describe("navigation on desktop", () => {
 
   test("the CV button in the navbar points at a PDF that exists", async ({ page, request }) => {
     await page.goto("/");
-    const cv = page.getByRole("banner").getByRole("link", { name: "CV", exact: true });
+    const cv = page.getByRole("banner").getByRole("link", { name: "Download CV (PDF)" });
     await expect(cv).toHaveAttribute("href", hero.resume);
+    await expect(cv).toHaveAttribute("download", "");
     const response = await request.get(hero.resume);
     expect(response.ok()).toBe(true);
     expect(response.headers()["content-type"]).toContain("application/pdf");
