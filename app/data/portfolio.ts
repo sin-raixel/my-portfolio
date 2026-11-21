@@ -39,7 +39,7 @@ export type TimelineItem = {
 export const profile = {
   name: "John Raizel Bacang",
   role: "IT student and frontend developer focused on UI/UX",
-  bio: "I'm an IT student at Bulacan State University who enjoys building intuitive learning websites. Outside of code I'm into space science and cooking. Right now I'm learning Next.js and Tailwind CSS by building this site.",
+  bio: "I'm an IT student at Bulacan State University who enjoys building intuitive learning websites. Outside of code I'm into space science and cooking. I build with React, Next.js, and Tailwind CSS, and I test what I build.",
   location: "San Jose del Monte, Bulacan, Philippines",
   email: "johnraizelbacang@gmail.com",
   links: [
@@ -134,9 +134,9 @@ export const projects: Project[] = [
       "Wrote the system's capstone manuscript, the project documentation",
     ],
     screenshots: [
-      { src: "/projects/titleHeader.png", alt: "CICT-PPMP landing page, top section" },
-      { src: "/projects/systemFeatures.png", alt: "CICT-PPMP landing page, features" },
-      { src: "/projects/userLevels.png", alt: "CICT-PPMP landing page, footer" },
+      { src: "/projects/titleHeader.webp", alt: "CICT-PPMP landing page, top section" },
+      { src: "/projects/systemFeatures.webp", alt: "CICT-PPMP landing page, features" },
+      { src: "/projects/userLevels.webp", alt: "CICT-PPMP landing page, footer" },
     ],
     href: "https://cict-ppmp.vercel.app/",
     linkLabel: "Visit landing page",
@@ -202,10 +202,10 @@ export const projects: Project[] = [
       "Known limits written down: scanned PDFs need OCR, and history lives in the browser",
     ],
     screenshots: [
-      { src: "/projects/quizmos-home.png", alt: "Quizmos home screen with the file upload box and saved reviewers" },
-      { src: "/projects/quizmos-upload.png", alt: "Quizmos with a PDF added and a reviewer ready to make" },
-      { src: "/projects/quizmos-quiz.png", alt: "Quizmos quiz showing a multiple-choice question" },
-      { src: "/projects/quizmos-flashcards.png", alt: "Quizmos flashcards mode" },
+      { src: "/projects/quizmos-home.webp", alt: "Quizmos home screen with the file upload box and saved reviewers" },
+      { src: "/projects/quizmos-upload.webp", alt: "Quizmos with a PDF added and a reviewer ready to make" },
+      { src: "/projects/quizmos-quiz.webp", alt: "Quizmos quiz showing a multiple-choice question" },
+      { src: "/projects/quizmos-flashcards.webp", alt: "Quizmos flashcards mode" },
     ],
     href: "https://project-quizmos.vercel.app",
     linkLabel: "Try Quizmos",
@@ -337,7 +337,6 @@ export const projects: Project[] = [
     away: "Home cooking, astronomy, cosmology, biology, and earth science.",
     atKeyboard: "Interactive learning tools and web apps with clear interfaces.",
     currently: [
-      { label: "Learning", value: "Next.js and Tailwind CSS" },
       { label: "Building", value: "This portfolio, then an interactive reviewer app" },
       { label: "Looking for", value: "An internship" },
     ],
@@ -382,12 +381,11 @@ export const certifications: TimelineItem[] = [
 
 export const skills: SkillGroup[] = [
   { group: "Languages", items: ["HTML", "CSS", "JavaScript", "TypeScript", "Java", "Python", "PHP", "SQL"] },
-  { group: "Frameworks", items: ["React", "Node.js", "Django"] },
+  { group: "Frameworks", items: ["React", "Next.js", "Tailwind CSS", "Node.js", "Django"] },
+  { group: "Practices", items: ["Quality assurance", "Software testing", "Technical documentation"] },
+  { group: "Tools", items: ["Git", "GitHub", "Vercel", "VS Code", "Figma", "Canva", "ChatGPT", "Claude"] },
   { group: "Databases", items: ["MySQL", "Supabase"] },
   { group: "Networking", items: ["Cisco networking basics", "Device configuration", "Network security"] },
-  { group: "Learning", items: ["Next.js", "Tailwind CSS"] },
-  { group: "Tools", items: ["Git", "GitHub", "Vercel", "VS Code", "Figma", "Canva", "ChatGPT", "Claude"] },
-  { group: "Practices", items: ["Quality assurance", "Software testing", "Technical documentation"] },
 ];
 
 export const hero = {

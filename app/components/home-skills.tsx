@@ -5,7 +5,7 @@ import TiltCard from "./tilt-card";
 const MAX_CHIPS = 6;
 
 // Frontend and QA first, then the rest in their original order.
-const ORDER = ["Languages", "Frameworks", "Practices", "Tools", "Learning", "Databases", "Networking"];
+const ORDER = ["Languages", "Frameworks", "Practices", "Tools", "Databases", "Networking"];
 const sorted = [...skills].sort((a, b) => {
   const rank = (name: string) => (ORDER.includes(name) ? ORDER.indexOf(name) : ORDER.length);
   return rank(a.group) - rank(b.group);
